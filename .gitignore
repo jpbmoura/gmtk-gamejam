@@ -1,0 +1,17 @@
+# ---- Godot 4 ----
+.godot/
+/android/
+
+# ---- macOS ----
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ---- Builds / exports ----
+/builds/
+export_presets.cfg
+
+# ---- Diversos ----
+*.tmp
+*.log
