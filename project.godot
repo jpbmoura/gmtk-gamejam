@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="gmtk-gamejam"
+run/main_scene="uid://bnpsv6t3n88ao"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
