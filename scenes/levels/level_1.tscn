@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://6idt65y6u3e0"]
+
+[ext_resource type="Script" uid="uid://bnxug3x3taa6e" path="res://scenes/levels/level_1.gd" id="1_6761a"]
+[ext_resource type="PackedScene" uid="uid://brhky7d1fu1f7" path="res://scenes/entities/platform.tscn" id="1_nsrm0"]
+[ext_resource type="Script" uid="uid://bxowh1g00b0lj" path="res://scenes/player/player.gd" id="2_x42e6"]
+[ext_resource type="Texture2D" uid="uid://byaakvrxlx1jm" path="res://icon.svg" id="3_6761a"]
+[ext_resource type="Script" uid="uid://3clmk6063l62" path="res://scenes/levels/killzone.gd" id="4_x42e6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dodyb"]
+size = Vector2(2090, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw547"]
+size = Vector2(32, 32)
+
+[node name="Level1" type="Node2D" unique_id=2117434212 node_paths=PackedStringArray("spawn", "player")]
+script = ExtResource("1_6761a")
+spawn = NodePath("Spawn")
+player = NodePath("Player")
+
+[node name="World" type="Node2D" parent="." unique_id=1252937482]
+
+[node name="Platform" parent="World" unique_id=424414164 instance=ExtResource("1_nsrm0")]
+position = Vector2(0, 192)
+
+[node name="Platform2" parent="World" unique_id=1400482550 instance=ExtResource("1_nsrm0")]
+position = Vector2(992, 352)
+
+[node name="Spawn" type="Marker2D" parent="." unique_id=734893175]
+position = Vector2(120, 190)
+gizmo_extents = 36.3
+
+[node name="Killzone" type="Area2D" parent="." unique_id=1751670375 node_paths=PackedStringArray("spawn")]
+position = Vector2(160, 96)
+script = ExtResource("4_x42e6")
+spawn = NodePath("../Spawn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=991627366]
+position = Vector2(800, 480)
+shape = SubResource("RectangleShape2D_dodyb")
+debug_color = Color(0, 0.20784314, 0.69803923, 0.41960785)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=837359898]
+position = Vector2(0, 160)
+script = ExtResource("2_x42e6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=2033307389]
+position = Vector2(112, -80)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_6761a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=727390925]
+position = Vector2(112, -80)
+shape = SubResource("RectangleShape2D_fw547")

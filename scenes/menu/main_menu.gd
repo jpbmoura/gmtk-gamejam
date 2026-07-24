@@ -1,6 +1,6 @@
 extends Control
 
-const GAME_SCENE := "res://scenes/player/player.tscn"
+const GAME_SCENE := "res://scenes/levels/level_1.tscn"
 
 @onready var options_menu: Control = %OptionsMenu
 @onready var main_buttons: Control = %CenterContainer
