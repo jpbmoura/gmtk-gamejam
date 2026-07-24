@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://byaakvrxlx1jm" path="res://icon.svg" id="3_6761a"]
 [ext_resource type="Script" uid="uid://3clmk6063l62" path="res://scenes/levels/killzone.gd" id="4_x42e6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kiblc"]
+size = Vector2(64, 288)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dodyb"]
 size = Vector2(2090, 138)
 
@@ -20,10 +23,24 @@ player = NodePath("Player")
 [node name="World" type="Node2D" parent="." unique_id=1252937482]
 
 [node name="Platform" parent="World" unique_id=424414164 instance=ExtResource("1_nsrm0")]
-position = Vector2(0, 192)
+position = Vector2(0, 195)
 
 [node name="Platform2" parent="World" unique_id=1400482550 instance=ExtResource("1_nsrm0")]
-position = Vector2(992, 352)
+position = Vector2(992, 512)
+
+[node name="Wall" type="StaticBody2D" parent="World" unique_id=2057145125]
+position = Vector2(288, -64)
+
+[node name="ColorRect" type="ColorRect" parent="World/Wall" unique_id=481048283]
+offset_left = 928.0
+offset_top = 256.0
+offset_right = 992.0
+offset_bottom = 544.0
+color = Color(0, 0.20698339, 0.05717271, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Wall" unique_id=1537757240]
+position = Vector2(960, 400)
+shape = SubResource("RectangleShape2D_kiblc")
 
 [node name="Spawn" type="Marker2D" parent="." unique_id=734893175]
 position = Vector2(120, 190)
@@ -35,7 +52,7 @@ script = ExtResource("4_x42e6")
 spawn = NodePath("../Spawn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=991627366]
-position = Vector2(800, 480)
+position = Vector2(800, 576)
 shape = SubResource("RectangleShape2D_dodyb")
 debug_color = Color(0, 0.20784314, 0.69803923, 0.41960785)
 
