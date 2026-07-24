@@ -86,7 +86,7 @@ func register_death() -> void:
 
 func tension() -> float:
     return clampf(1.0 - (time_left / 20.0), 0.0, 1.0)
- 
- 
+
+
 func elapsed() -> float:
     return _elapsed

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://5yr07om6pfvp"]
+
+[ext_resource type="PackedScene" uid="uid://bnpsv6t3n88ao" path="res://scenes/menu/main_menu.tscn" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://bkt0klbudoi4j" path="res://scenes/menu/main_menu.gd" id="2_0e48y"]
+
+[node name="Node2D" type="Node2D" unique_id=1853655028]
+position = Vector2(97, 81)
+
+[node name="MainMenu" parent="." unique_id=207839281 instance=ExtResource("1_wtcfe")]
+script = ExtResource("2_0e48y")
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://ya4n7nfvovnx"]
+
+[ext_resource type="Script" uid="uid://be6vuofnyop5r" path="res://scenes/menu/options.gd" id="1_kixs7"]
+
+[node name="OptionsMenu" type="Control" unique_id=1833312848]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kixs7")
+
+[node name="OptionsMenu" type="CenterContainer" parent="." unique_id=1403849777]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu" unique_id=801682094]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="OptionsMenu/VBoxContainer" unique_id=1420218896]
+layout_mode = 2
+text = "Options"
+
+[node name="GridContainer" type="GridContainer" parent="OptionsMenu/VBoxContainer" unique_id=498289440]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/VBoxContainer/GridContainer" unique_id=1440454232]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="OptionsMenu/VBoxContainer/GridContainer" unique_id=1283170158]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="Label2" type="Label" parent="OptionsMenu/VBoxContainer/GridContainer" unique_id=840945210]
+layout_mode = 2
+text = "Effects"
+
+[node name="SfxSlider" type="HSlider" parent="OptionsMenu/VBoxContainer/GridContainer" unique_id=913693776]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="Label3" type="Label" parent="OptionsMenu/VBoxContainer/GridContainer" unique_id=950072977]
+layout_mode = 2
+text = "FullScreen"
+
+[node name="FullscreenCheck" type="CheckButton" parent="OptionsMenu/VBoxContainer/GridContainer" unique_id=1391978913]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="OptionsMenu/VBoxContainer" unique_id=743179133]
+layout_mode = 2
+text = "Back"
