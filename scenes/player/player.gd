@@ -39,7 +39,6 @@ func _ready() -> void:
 	add_to_group("player")
 
 	# -- animation --
-	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta: float) -> void:
 	var on_floor := is_on_floor()
@@ -105,6 +104,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("ui_accept") and velocity.y < 0.0:
 		velocity.y *= jump_cut
 
+	if not on_floor:
+		$AnimatedSprite2D.play("jumping_air")
+
+
 	# --- dash ---
 	# ui_right twice to dash
 	if Input.is_action_just_pressed("dash") && not dash_used:
@@ -134,15 +137,26 @@ func _physics_process(delta: float) -> void:
 					$AnimatedSprite2D/ParticleRunning.emitting = true
 					$AnimatedSprite2D/ParticleRunning.position.x = -16
 			
-			if velocity.x != 0.0 and on_floor:
-				$AnimatedSprite2D.play("running")
-			else:
-				$AnimatedSprite2D.play("idle")
-
+			
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, friction * delta)
 			$AnimatedSprite2D.play("idle")
 			$AnimatedSprite2D/ParticleRunning.emitting = false
 			$AnimatedSprite2D/ParticlePoison.emitting = true
+
+		# --- animation ---
+		# idle
+		if velocity.x == 0.0 and on_floor:
+			$AnimatedSprite2D.play("idle")
+		# running
+		elif velocity.x != 0.0 and on_floor:
+			$AnimatedSprite2D.play("running")
+		# jumping
+		elif velocity.y < 0.0:
+			$AnimatedSprite2D.play("jumping_air")
+		# falling
+		elif velocity.y > 0.0:
+			$AnimatedSprite2D.play("falling_air")
+		
 
 	move_and_slide()
