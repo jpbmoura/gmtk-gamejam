@@ -27,7 +27,7 @@ sources/0 = SubResource("TileSetAtlasSource_dga24")
 size = Vector2(2090, 138)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw547"]
-size = Vector2(23, 27)
+size = Vector2(16, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svqqs"]
 atlas = ExtResource("5_qxy0u")
@@ -517,7 +517,7 @@ position = Vector2(0, 160)
 script = ExtResource("2_x42e6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=727390925]
-position = Vector2(109.5, -79.5)
+position = Vector2(112, -79.5)
 shape = SubResource("RectangleShape2D_fw547")
 
 [node name="Camera2D" type="Camera2D" parent="Player/CollisionShape2D" unique_id=220215669]

@@ -32,6 +32,7 @@ var dash_timer := 0.0
 var dash_direction := 0.0
 var dash_used := false
 var dash_cooldown_timer := 0.0
+var facing := -1
 
 var DASH_TIME = 0.2
 var DASH_SPEED = 800.0
@@ -93,6 +94,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = wall_jump_height
 		wall_lock_timer = wall_jump_lock
 		jumps_left = max_jumps - 1
+		$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
+		facing = facing * -1
 
 	# --- pulo normal / duplo ---
 	elif buffer_timer > 0.0 and jumps_left > 0:
@@ -113,7 +116,10 @@ func _physics_process(delta: float) -> void:
 			dash_cooldown_timer -= delta
 
 		dash_used = true
-		dash_direction = Input.get_axis("ui_left", "ui_right")
+		if Input.get_axis("ui_left", "ui_right"):
+			dash_direction = Input.get_axis("ui_left", "ui_right")
+		else:
+			dash_direction = facing
 		dash_timer = DASH_TIME
 
 	if dash_timer > 0.0:
@@ -125,6 +131,8 @@ func _physics_process(delta: float) -> void:
 	# --- moving ---
 	if wall_lock_timer <= 0.0:
 		var direction := Input.get_axis("ui_left", "ui_right")
+		if direction != 0:
+			facing = direction
 		if direction:
 			velocity.x = move_toward(velocity.x, direction * speed, acceleration * delta)
 			$AnimatedSprite2D/ParticlePoison.emitting = false
