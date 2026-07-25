@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3uo55barugsl"
-path="res://.godot/imported/poison.png-8067d4913228778aa6aa5738a9f80d09.ctex"
+uid="uid://bxiknj3a8gggl"
+path="res://.godot/imported/posion_2.png-73a4a99094857f2c9f1248b30416cfdf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/poison.png"
-dest_files=["res://.godot/imported/poison.png-8067d4913228778aa6aa5738a9f80d09.ctex"]
+source_file="res://assets/particles/posion_2.png"
+dest_files=["res://.godot/imported/posion_2.png-73a4a99094857f2c9f1248b30416cfdf.ctex"]
 
 [params]
 

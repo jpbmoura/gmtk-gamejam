@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bxowh1g00b0lj" path="res://scenes/player/player.gd" id="2_x42e6"]
 [ext_resource type="Texture2D" uid="uid://byaakvrxlx1jm" path="res://icon.svg" id="3_6761a"]
 [ext_resource type="Script" uid="uid://3clmk6063l62" path="res://scenes/levels/killzone.gd" id="4_x42e6"]
-[ext_resource type="Texture2D" uid="uid://c3uo55barugsl" path="res://assets/poison.png" id="6_sk5k4"]
+[ext_resource type="Texture2D" uid="uid://bxiknj3a8gggl" path="res://assets/particles/posion_2.png" id="6_sk5k4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kiblc"]
 size = Vector2(64, 288)
@@ -18,7 +18,7 @@ size = Vector2(32, 32)
 
 [sub_resource type="Curve" id="Curve_sk5k4"]
 _limits = [-1.0, 1.0, 0.0, 2.0]
-_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.96808517, 0.9775281), 0.0, 0.0, 0, 0, Vector2(1.9468086, -0.9101125), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.96808517, 0.9775281), 0.0, 0.0, 0, 0, Vector2(1.9787235, 0.9325843), -1.9498698, 0.0, 0, 0]
 point_count = 3
 
 [node name="Level1" type="Node2D" unique_id=2117434212 node_paths=PackedStringArray("spawn", "player")]
@@ -79,7 +79,6 @@ shape = SubResource("RectangleShape2D_fw547")
 modulate = Color(0, 0.7695679, 0.16358232, 1)
 self_modulate = Color(0, 0.40784314, 0.1882353, 1)
 oversampling_with_scale = 1
-amount = 4
 texture = ExtResource("6_sk5k4")
 lifetime = 2.0
 lifetime_randomness = 0.5
@@ -91,7 +90,7 @@ angular_velocity_max = 142.57
 radial_accel_min = 20.0
 radial_accel_max = 20.0
 angle_max = 399.2
-scale_amount_min = 0.3
+scale_amount_min = 0.1
 scale_amount_max = 0.5
 color = Color(3.946722e-06, 0.80765486, 0.28803572, 1)
 hue_variation_min = 0.5
