@@ -92,6 +92,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("ui_accept") and velocity.y < 0.0:
 		velocity.y *= jump_cut
 
+	# --- dash ---
+	# ui_right twice to dash
+	if Input.is_action_just_pressed("ui_dash"):
+		velocity.x = speed * 2.0 * sign(velocity.x)
+
 	# --- horizontal ---
 	if wall_lock_timer <= 0.0:
 		var direction := Input.get_axis("ui_left", "ui_right")
