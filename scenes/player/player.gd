@@ -130,12 +130,12 @@ func _physics_process(delta: float) -> void:
 					$AnimatedSprite2D/ParticleRunning.position.x = 16
 			else:
 				$AnimatedSprite2D.flip_h = true
+				if on_floor:
+					$AnimatedSprite2D/ParticleRunning.emitting = true
+					$AnimatedSprite2D/ParticleRunning.position.x = -16
 			
 			if velocity.x != 0.0 and on_floor:
-					if on_floor:
-						$AnimatedSprite2D/ParticleRunning.emitting = true
-						$AnimatedSprite2D/ParticleRunning.position.x = -16
-			$AnimatedSprite2D.play("running")
+				$AnimatedSprite2D.play("running")
 			else:
 				$AnimatedSprite2D.play("idle")
 
