@@ -58,7 +58,6 @@ func _physics_process(delta: float) -> void:
 
 	# --- timers de parede ---
 	if on_wall:
-		$AnimatedSprite2D.play("idle")
 		last_wall_normal = get_wall_normal()
 		wall_coyote_timer = wall_coyote_time
 		jumps_left = max_jumps
@@ -106,10 +105,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("ui_accept") and velocity.y < 0.0:
 		velocity.y *= jump_cut
 
-	if not on_floor:
-		$AnimatedSprite2D.play("jumping_air")
-
-
 	# --- dash ---
 	# ui_right twice to dash
 	if Input.is_action_just_pressed("dash") && not dash_used:
@@ -147,7 +142,6 @@ func _physics_process(delta: float) -> void:
 			
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, friction * delta)
-			$AnimatedSprite2D.play("idle")
 			$AnimatedSprite2D/ParticleRunning.emitting = false
 			$AnimatedSprite2D/ParticlePoison.emitting = true
 

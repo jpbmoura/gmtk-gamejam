@@ -293,7 +293,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"dash",
-"speed": 5.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -528,6 +528,7 @@ position = Vector2(112, -80)
 scale = Vector2(0.49999994, 0.49999997)
 sprite_frames = SubResource("SpriteFrames_dwgpx")
 animation = &"dash"
+frame_progress = 0.98615247
 
 [node name="ParticlePoison" type="CPUParticles2D" parent="Player/AnimatedSprite2D" unique_id=855651056]
 visible = false
