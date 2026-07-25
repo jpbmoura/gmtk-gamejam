@@ -30,7 +30,7 @@ const CATALOG := {
 
 
 var herb_count: int = 0
-var coins := 0
+var coins := 10000
 var upgrades: Dictionary = {}   # id -> nível comprado
 
 func add_herb(val:int = 1):

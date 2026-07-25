@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" uid="uid://5he44whusjya" path="res://scenes/merchant/merchant.gd" id="1_jpa3s"]
 [ext_resource type="Texture2D" uid="uid://byaakvrxlx1jm" path="res://icon.svg" id="1_sxptm"]
+[ext_resource type="FontFile" uid="uid://4nxqoysmbfjf" path="res://assets/fonts/old_london/OldLondon.ttf" id="3_rluj3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dodyb"]
-radius = 256.0
+radius = 96.0
 
 [node name="Merchant" type="Area2D" unique_id=2053562257]
 script = ExtResource("1_jpa3s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1222217987]
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_sxptm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1294063747]
@@ -17,6 +19,12 @@ shape = SubResource("CircleShape2D_dodyb")
 
 [node name="Prompt" type="Label" parent="." unique_id=459763518]
 visible = false
-offset_right = 40.0
-offset_bottom = 23.0
+custom_minimum_size = Vector2(100, 0)
+offset_left = -50.0
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = -28.0
+theme_override_fonts/font = ExtResource("3_rluj3")
+theme_override_font_sizes/font_size = 14
 text = "Press \"E\""
+horizontal_alignment = 1
