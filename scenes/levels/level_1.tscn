@@ -495,7 +495,7 @@ tile_map_data = PackedByteArray("AAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAA
 tile_set = SubResource("TileSet_hqeee")
 
 [node name="Herb" parent="World" unique_id=253410192 instance=ExtResource("3_qxy0u")]
-position = Vector2(264, 88)
+position = Vector2(265, 88)
 on_collission = "add_herb"
 
 [node name="Spawn" type="Marker2D" parent="." unique_id=734893175]
