@@ -28,6 +28,12 @@ var buffer_timer := 0.0
 var wall_lock_timer := 0.0
 var wall_coyote_timer := 0.0
 var last_wall_normal := Vector2.ZERO
+var dash_timer := 0.0
+var dash_direction := 0.0
+var dash_used := false
+
+var DASH_TIME = 0.2
+var DASH_SPEED = 800.0
 
 func _ready() -> void:
 	add_to_group("player")
@@ -41,6 +47,7 @@ func _physics_process(delta: float) -> void:
 
 	# --- timers de chão ---
 	if on_floor:
+		dash_used = false
 		coyote_timer = coyote_time
 		jumps_left = max_jumps
 	else:
@@ -50,6 +57,7 @@ func _physics_process(delta: float) -> void:
 
 	# --- timers de parede ---
 	if on_wall:
+		$AnimatedSprite2D.play("idle")
 		last_wall_normal = get_wall_normal()
 		wall_coyote_timer = wall_coyote_time
 		jumps_left = max_jumps
@@ -97,8 +105,15 @@ func _physics_process(delta: float) -> void:
 
 	# --- dash ---
 	# ui_right twice to dash
-	if Input.is_action_just_pressed("dash"):
-		velocity.x = speed * 2.0 * sign(velocity.x)
+	if Input.is_action_just_pressed("dash") && not dash_used:
+		dash_used = true
+		dash_direction = Input.get_axis("ui_left", "ui_right")
+		dash_timer = DASH_TIME
+
+	if dash_timer > 0.0:
+		dash_timer -= delta
+		velocity.x = DASH_SPEED * dash_direction
+		velocity.y = 0.0
 
 	# --- moving ---
 	if wall_lock_timer <= 0.0:
@@ -109,7 +124,11 @@ func _physics_process(delta: float) -> void:
 				$AnimatedSprite2D.flip_h = false
 			else:
 				$AnimatedSprite2D.flip_h = true
-			$AnimatedSprite2D.play("running")
+			
+			if velocity.x != 0.0 and on_floor:
+				$AnimatedSprite2D.play("running")
+			else:
+				$AnimatedSprite2D.play("idle")
 
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, friction * delta)
