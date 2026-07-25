@@ -18,11 +18,6 @@ size = Vector2(2090, 138)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw547"]
 size = Vector2(23, 27)
 
-[sub_resource type="Curve" id="Curve_sk5k4"]
-_limits = [-1.0, 1.0, 0.0, 2.0]
-_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.96808517, 0.9775281), 0.0, 0.0, 0, 0, Vector2(1.9468086, -0.9101125), 0.0, 0.0, 0, 0]
-point_count = 3
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dga24"]
 atlas = ExtResource("6_s8va5")
 region = Rect2(0, 0, 64, 64)
@@ -239,6 +234,11 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="Curve" id="Curve_sk5k4"]
+_limits = [-1.0, 1.0, 0.0, 2.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.96808517, 0.9775281), 0.0, 0.0, 0, 0, Vector2(1.9468086, -0.9101125), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="Level1" type="Node2D" unique_id=2117434212 node_paths=PackedStringArray("spawn", "player")]
 script = ExtResource("1_6761a")
 spawn = NodePath("Spawn")
@@ -288,29 +288,8 @@ script = ExtResource("2_x42e6")
 position = Vector2(109.5, -79.5)
 shape = SubResource("RectangleShape2D_fw547")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Player/CollisionShape2D" unique_id=855651056]
-visible = false
-modulate = Color(0, 0.7695679, 0.16358232, 1)
-self_modulate = Color(0, 0.40784314, 0.1882353, 1)
-oversampling_with_scale = 1
-amount = 4
-texture = ExtResource("6_oc4kc")
-lifetime = 2.0
-lifetime_randomness = 0.5
-emission_shape = 1
-emission_sphere_radius = 36.33
-gravity = Vector2(0, -100)
-angular_velocity_min = 57.03
-angular_velocity_max = 142.57
-radial_accel_min = 20.0
-radial_accel_max = 20.0
-angle_max = 399.2
-scale_amount_min = 0.3
-scale_amount_max = 0.5
-color = Color(3.946722e-06, 0.80765486, 0.28803572, 1)
-hue_variation_min = 0.5
-hue_variation_max = 1.0
-hue_variation_curve = SubResource("Curve_sk5k4")
+[node name="Camera2D" type="Camera2D" parent="Player/CollisionShape2D" unique_id=220215669]
+zoom = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1349859917]
 position = Vector2(112, -80)
@@ -319,9 +298,48 @@ sprite_frames = SubResource("SpriteFrames_dwgpx")
 animation = &"running"
 frame_progress = 0.09323585
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=220215669]
-position = Vector2(112, -79)
-zoom = Vector2(2, 2)
+[node name="ParticlePoison" type="CPUParticles2D" parent="Player/AnimatedSprite2D" unique_id=855651056]
+modulate = Color(0, 0.7695679, 0.16358232, 1)
+self_modulate = Color(0, 0.40784314, 0.1882353, 1)
+oversampling_with_scale = 1
+position = Vector2(0, 25)
+amount = 16
+texture = ExtResource("6_oc4kc")
+lifetime = 3.0
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+gravity = Vector2(0, -10)
+angular_velocity_min = 57.03
+angular_velocity_max = 142.57
+tangential_accel_min = 10.0
+tangential_accel_max = 10.0
+angle_max = 399.2
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+color = Color(3.946722e-06, 0.80765486, 0.28803572, 1)
+hue_variation_min = 0.5
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_sk5k4")
+
+[node name="ParticleRunning" type="CPUParticles2D" parent="Player/AnimatedSprite2D" unique_id=409536674]
+position = Vector2(16, 20)
+scale = Vector2(2.0000002, 2.0000002)
+emitting = false
+amount = 32
+lifetime = 0.21000000000000002
+explosiveness = 0.11
+lifetime_randomness = 0.41
+emission_shape = 1
+emission_sphere_radius = 3.53
+gravity = Vector2(0, -15)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+damping_min = 88.119
+damping_max = 93.069
+angle_max = 499.0
+scale_amount_max = 4.0
+color = Color(0.20598286, 0.14374983, 2.8878452e-07, 1)
 
 [node name="DebugOverlay" type="CanvasLayer" parent="." unique_id=990117488 node_paths=PackedStringArray("player")]
 script = ExtResource("7_oc4kc")

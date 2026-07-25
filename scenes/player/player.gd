@@ -77,6 +77,8 @@ func _physics_process(delta: float) -> void:
 		if velocity.y > 0.0:
 			mult *= fall_multiplier
 		velocity += get_gravity() * (delta * mult)
+		$AnimatedSprite2D/ParticleRunning.emitting = false
+		$AnimatedSprite2D/ParticlePoison.emitting = false
 
 	# --- deslizar na parede ---
 	if on_wall and velocity.y > 0.0:
@@ -120,18 +122,27 @@ func _physics_process(delta: float) -> void:
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction:
 			velocity.x = move_toward(velocity.x, direction * speed, acceleration * delta)
+			$AnimatedSprite2D/ParticlePoison.emitting = false
 			if direction < 0.0:
 				$AnimatedSprite2D.flip_h = false
+				if on_floor:
+					$AnimatedSprite2D/ParticleRunning.emitting = true
+					$AnimatedSprite2D/ParticleRunning.position.x = 16
 			else:
 				$AnimatedSprite2D.flip_h = true
 			
 			if velocity.x != 0.0 and on_floor:
-				$AnimatedSprite2D.play("running")
+					if on_floor:
+						$AnimatedSprite2D/ParticleRunning.emitting = true
+						$AnimatedSprite2D/ParticleRunning.position.x = -16
+			$AnimatedSprite2D.play("running")
 			else:
 				$AnimatedSprite2D.play("idle")
 
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, friction * delta)
 			$AnimatedSprite2D.play("idle")
+			$AnimatedSprite2D/ParticleRunning.emitting = false
+			$AnimatedSprite2D/ParticlePoison.emitting = true
 
 	move_and_slide()
