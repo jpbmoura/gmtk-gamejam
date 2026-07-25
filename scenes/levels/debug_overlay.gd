@@ -15,6 +15,7 @@ var _best_d := 0.0
 var _max_height := 0.0
 var _max_speed := 0.0
 
+# var is_dashing = player.is_dashing
 
 func _ready() -> void:
 	# get_tree().debug_collisions_hint = true
@@ -56,6 +57,7 @@ func _process(_delta: float) -> void:
 		"RECORDE      h %.2f  d %.2f" % [_best_h, _best_d],
 		"ALTURA MÁX    %.2f tiles" % _max_height,
 		"VEL MÁX       %.0f px/s" % _max_speed,
+		# "DASHING       %s" % ("sim" if is_dashing else "não")
 	])
 
 

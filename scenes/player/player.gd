@@ -31,9 +31,11 @@ var last_wall_normal := Vector2.ZERO
 var dash_timer := 0.0
 var dash_direction := 0.0
 var dash_used := false
+var dash_cooldown_timer := 0.0
 
 var DASH_TIME = 0.2
 var DASH_SPEED = 800.0
+var DASH_COOLDOWN = 2
 
 func _ready() -> void:
 	add_to_group("player")
@@ -111,6 +113,10 @@ func _physics_process(delta: float) -> void:
 	# --- dash ---
 	# ui_right twice to dash
 	if Input.is_action_just_pressed("dash") && not dash_used:
+		if dash_cooldown_timer <= DASH_COOLDOWN:
+			dash_cooldown_timer = DASH_COOLDOWN
+			dash_cooldown_timer -= delta
+
 		dash_used = true
 		dash_direction = Input.get_axis("ui_left", "ui_right")
 		dash_timer = DASH_TIME
@@ -119,6 +125,7 @@ func _physics_process(delta: float) -> void:
 		dash_timer -= delta
 		velocity.x = DASH_SPEED * dash_direction
 		velocity.y = 0.0
+	
 
 	# --- moving ---
 	if wall_lock_timer <= 0.0:
@@ -145,18 +152,23 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D/ParticlePoison.emitting = true
 
 		# --- animation ---
-		# idle
+
+			# dash
+	if dash_timer > 0.0:
+		$AnimatedSprite2D.play("dash")
+	else:
+			# idle
 		if velocity.x == 0.0 and on_floor:
 			$AnimatedSprite2D.play("idle")
-		# running
+			# running
 		elif velocity.x != 0.0 and on_floor:
 			$AnimatedSprite2D.play("running")
-		# jumping
+			# jumping
 		elif velocity.y < 0.0:
 			$AnimatedSprite2D.play("jumping_air")
 		# falling
 		elif velocity.y > 0.0:
 			$AnimatedSprite2D.play("falling_air")
 		
-
+		
 	move_and_slide()
