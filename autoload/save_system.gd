@@ -85,7 +85,7 @@ func load_game() -> void:
 	cheap_respawn = cfg.get_value("meta", "cheap_respawn", false)
 	magnet = cfg.get_value("meta", "magnet", false)
 
-## Botão de "resetar progresso" 
+## Botão de "resetar progresso"
 func wipe() -> void:
 	coins = 0
 	permanent_verbs.clear()

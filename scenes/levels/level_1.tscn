@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://lfgc71g0g32n" path="res://assets/sprites/idle-Sheet.png" id="6_s8va5"]
 [ext_resource type="Script" uid="uid://bwy648e6acgts" path="res://scenes/levels/debug_overlay.gd" id="7_oc4kc"]
 [ext_resource type="Texture2D" uid="uid://ctdqm0livm7x5" path="res://assets/sprites/run-Sheet.png" id="7_s8va5"]
+[ext_resource type="PackedScene" uid="uid://bcekfs1yigsqj" path="res://scenes/merchant/merchant.tscn" id="12_iav0o"]
+[ext_resource type="PackedScene" uid="uid://c7x503dumguwd" path="res://scenes/merchant/shop_ui.tscn" id="13_dnkej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dga24"]
 texture = ExtResource("2_s8va5")
@@ -293,7 +295,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"dash",
-"speed": 5.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -527,7 +529,7 @@ zoom = Vector2(2, 2)
 position = Vector2(112, -80)
 scale = Vector2(0.49999994, 0.49999997)
 sprite_frames = SubResource("SpriteFrames_dwgpx")
-animation = &"dash"
+animation = &"falling_end"
 
 [node name="ParticlePoison" type="CPUParticles2D" parent="Player/AnimatedSprite2D" unique_id=855651056]
 visible = false
@@ -576,3 +578,9 @@ color = Color(0.16078432, 0.14901961, 0.28627452, 1)
 [node name="DebugOverlay" type="CanvasLayer" parent="." unique_id=990117488 node_paths=PackedStringArray("player")]
 script = ExtResource("7_oc4kc")
 player = NodePath("../Player")
+
+[node name="Merchant" parent="." unique_id=2053562257 node_paths=PackedStringArray("shop_ui") instance=ExtResource("12_iav0o")]
+position = Vector2(896, -128)
+shop_ui = NodePath("../ShopUI")
+
+[node name="ShopUI" parent="." unique_id=1797039014 instance=ExtResource("13_dnkej")]

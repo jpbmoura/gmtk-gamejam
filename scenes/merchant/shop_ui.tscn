@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c7x503dumguwd"]
+
+[ext_resource type="Script" uid="uid://lirb51f3t1vn" path="res://scenes/merchant/shop_ui.gd" id="1_6nhc7"]
+[ext_resource type="FontFile" uid="uid://4nxqoysmbfjf" path="res://assets/fonts/old_london/OldLondon.ttf" id="2_4fq7r"]
+
+[sub_resource type="Theme" id="Theme_pxcak"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fw547"]
+bg_color = Color(0.12156863, 0.14117648, 0.1254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22745098, 0.25882354, 0.21960784, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="Theme" id="Theme_ffpg8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dnkej"]
+font = ExtResource("2_4fq7r")
+font_size = 68
+
+[sub_resource type="LabelSettings" id="LabelSettings_fw547"]
+font = ExtResource("2_4fq7r")
+font_size = 32
+
+[sub_resource type="Theme" id="Theme_jnh24"]
+
+[node name="ShopUI" type="CanvasLayer" unique_id=1797039014 node_paths=PackedStringArray("item_container", "coins_label")]
+process_mode = 3
+script = ExtResource("1_6nhc7")
+item_container = NodePath("CenterContainer/Panel/MarginContainer/VBoxContainer/ItemContainer")
+coins_label = NodePath("CenterContainer/Panel/MarginContainer/VBoxContainer/CoinsLabel")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1703905132]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pxcak")
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=575656462]
+custom_minimum_size = Vector2(420, 400)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fw547")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel" unique_id=1402266820]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 396.0
+offset_bottom = 140.0
+theme = SubResource("Theme_ffpg8")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer" unique_id=1563987627]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=24719358]
+layout_mode = 2
+text = "Shop"
+label_settings = SubResource("LabelSettings_dnkej")
+horizontal_alignment = 1
+
+[node name="CoinsLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=291945622]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Coins: 0"
+label_settings = SubResource("LabelSettings_fw547")
+horizontal_alignment = 2
+
+[node name="ItemContainer" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=736990226]
+layout_mode = 2
+theme = SubResource("Theme_jnh24")

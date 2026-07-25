@@ -37,8 +37,16 @@ var DASH_TIME = 0.2
 var DASH_SPEED = 800.0
 var DASH_COOLDOWN = 2
 
+func apply_upgrades() -> void:
+	max_jumps = 2 if Global.has("double_jump") else 1
+	speed = 300.0 * (1.0 + 0.15 * Global.level_of("speed"))
+	if Global.has("higher_jump"):
+		jump_velocity = -600.0 - 60.0 * Global.level_of("higher_jump")
+
 func _ready() -> void:
 	add_to_group("player")
+	apply_upgrades()
+	Global.upgrade_bought.connect(func(_id): apply_upgrades())
 
 	# -- animation --
 
@@ -58,7 +66,6 @@ func _physics_process(delta: float) -> void:
 
 	# --- timers de parede ---
 	if on_wall:
-		$AnimatedSprite2D.play("idle")
 		last_wall_normal = get_wall_normal()
 		wall_coyote_timer = wall_coyote_time
 		jumps_left = max_jumps
@@ -106,10 +113,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("ui_accept") and velocity.y < 0.0:
 		velocity.y *= jump_cut
 
-	if not on_floor:
-		$AnimatedSprite2D.play("jumping_air")
-
-
 	# --- dash ---
 	# ui_right twice to dash
 	if Input.is_action_just_pressed("dash") && not dash_used:
@@ -125,7 +128,7 @@ func _physics_process(delta: float) -> void:
 		dash_timer -= delta
 		velocity.x = DASH_SPEED * dash_direction
 		velocity.y = 0.0
-	
+
 
 	# --- moving ---
 	if wall_lock_timer <= 0.0:
@@ -143,11 +146,10 @@ func _physics_process(delta: float) -> void:
 				if on_floor:
 					$AnimatedSprite2D/ParticleRunning.emitting = true
 					$AnimatedSprite2D/ParticleRunning.position.x = -16
-			
-			
+
+
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, friction * delta)
-			$AnimatedSprite2D.play("idle")
 			$AnimatedSprite2D/ParticleRunning.emitting = false
 			$AnimatedSprite2D/ParticlePoison.emitting = true
 
@@ -169,6 +171,6 @@ func _physics_process(delta: float) -> void:
 		# falling
 		elif velocity.y > 0.0:
 			$AnimatedSprite2D.play("falling_air")
-		
-		
+
+
 	move_and_slide()
