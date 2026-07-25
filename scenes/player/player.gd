@@ -130,7 +130,7 @@ func _physics_process(delta: float) -> void:
 		dash_timer -= delta
 		velocity.x = DASH_SPEED * dash_direction
 		velocity.y = 0.0
-	
+
 	if dash_cooldown_timer > 0.0:
 		dash_cooldown_timer -= delta
 
@@ -152,8 +152,8 @@ func _physics_process(delta: float) -> void:
 				if on_floor:
 					$AnimatedSprite2D/ParticleRunning.emitting = true
 					$AnimatedSprite2D/ParticleRunning.position.x = -16
-			
-			
+
+
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, friction * delta)
 			$AnimatedSprite2D/ParticleRunning.emitting = false
@@ -177,6 +177,6 @@ func _physics_process(delta: float) -> void:
 		# falling
 		elif velocity.y > 0.0:
 			$AnimatedSprite2D.play("falling_air")
-		
-		
+
+
 	move_and_slide()
