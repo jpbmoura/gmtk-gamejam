@@ -36,7 +36,7 @@ var facing := -1
 
 var DASH_TIME = 0.2
 var DASH_SPEED = 800.0
-var DASH_COOLDOWN = 2
+var DASH_COOLDOWN = 2.3
 
 func _ready() -> void:
 	add_to_group("player")
@@ -49,7 +49,8 @@ func _physics_process(delta: float) -> void:
 
 	# --- timers de chão ---
 	if on_floor:
-		dash_used = false
+		if dash_cooldown_timer <= 2:
+			dash_used = false
 		coyote_timer = coyote_time
 		jumps_left = max_jumps
 	else:
@@ -87,6 +88,9 @@ func _physics_process(delta: float) -> void:
 
 	# --- pulo de parede (checar ANTES do pulo normal) ---
 	if buffer_timer > 0.0 and wall_coyote_timer > 0.0 and not on_floor:
+		dash_timer = 0.0
+		velocity.x = last_wall_normal.x * wall_jump_push
+		velocity.y = wall_jump_height
 		buffer_timer = 0.0
 		wall_coyote_timer = 0.0
 		coyote_timer = 0.0
@@ -102,6 +106,7 @@ func _physics_process(delta: float) -> void:
 		buffer_timer = 0.0
 		var ground_jump := coyote_timer > 0.0 and jumps_left == max_jumps
 		coyote_timer = 0.0
+		dash_timer = 0.0
 		velocity.y = jump_velocity if ground_jump else jump_velocity * double_jump_factor
 		jumps_left -= 1
 
@@ -110,16 +115,15 @@ func _physics_process(delta: float) -> void:
 
 	# --- dash ---
 	# ui_right twice to dash
-	if Input.is_action_just_pressed("dash") && not dash_used:
-		if dash_cooldown_timer <= DASH_COOLDOWN:
-			dash_cooldown_timer = DASH_COOLDOWN
-			dash_cooldown_timer -= delta
-
+	if Input.is_action_just_pressed("dash") and not dash_used:
 		dash_used = true
+		dash_cooldown_timer = DASH_COOLDOWN
+
 		if Input.get_axis("ui_left", "ui_right"):
 			dash_direction = Input.get_axis("ui_left", "ui_right")
 		else:
 			dash_direction = facing
+
 		dash_timer = DASH_TIME
 
 	if dash_timer > 0.0:
@@ -127,6 +131,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = DASH_SPEED * dash_direction
 		velocity.y = 0.0
 	
+	if dash_cooldown_timer > 0.0:
+		dash_cooldown_timer -= delta
 
 	# --- moving ---
 	if wall_lock_timer <= 0.0:
