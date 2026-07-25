@@ -17,7 +17,7 @@ var _max_speed := 0.0
 
 
 func _ready() -> void:
-	get_tree().debug_collisions_hint = true
+	# get_tree().debug_collisions_hint = true
 	_label = Label.new()
 	_label.position = Vector2(8, 8)
 	_label.add_theme_font_size_override("font_size", 14)

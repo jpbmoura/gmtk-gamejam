@@ -32,6 +32,9 @@ var last_wall_normal := Vector2.ZERO
 func _ready() -> void:
 	add_to_group("player")
 
+	# -- animation --
+	$AnimatedSprite2D.play("idle")
+
 func _physics_process(delta: float) -> void:
 	var on_floor := is_on_floor()
 	var on_wall := is_on_wall_only()
@@ -94,15 +97,22 @@ func _physics_process(delta: float) -> void:
 
 	# --- dash ---
 	# ui_right twice to dash
-	if Input.is_action_just_pressed("ui_dash"):
+	if Input.is_action_just_pressed("dash"):
 		velocity.x = speed * 2.0 * sign(velocity.x)
 
-	# --- horizontal ---
+	# --- moving ---
 	if wall_lock_timer <= 0.0:
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction:
 			velocity.x = move_toward(velocity.x, direction * speed, acceleration * delta)
+			if direction < 0.0:
+				$AnimatedSprite2D.flip_h = false
+			else:
+				$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("running")
+
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, friction * delta)
+			$AnimatedSprite2D.play("idle")
 
 	move_and_slide()
