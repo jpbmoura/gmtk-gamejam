@@ -58,6 +58,7 @@ func _process(_delta: float) -> void:
 		"ALTURA MÁX    %.2f tiles" % _max_height,
 		"VEL MÁX       %.0f px/s" % _max_speed,
 		# "DASHING       %s" % ("sim" if is_dashing else "não")
+		"HERBS %s" % str(Global.herb_count)
 	])
 
 
