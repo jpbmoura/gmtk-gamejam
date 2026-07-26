@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func set_bus_volume(bus_name: String, linear: float) -> void:
 	var idx := AudioServer.get_bus_index(bus_name)
+	print("bus '", bus_name, "' idx = ", idx, " volume = ", linear)
 	if idx == -1:
 		push_warning("Bus não encontrado: %s" % bus_name)
 		return

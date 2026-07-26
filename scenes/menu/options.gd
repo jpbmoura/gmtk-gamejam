@@ -18,6 +18,7 @@ func _ready() -> void:
 	%BackButton.pressed.connect(_on_back_pressed)
 
 func _on_music_changed(value: float) -> void:
+	print("slider música mexeu: ", value)
 	Settings.music_volume = value
 	Settings.set_bus_volume("Music", value)
 
