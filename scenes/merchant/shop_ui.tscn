@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lirb51f3t1vn" path="res://scenes/merchant/shop_ui.gd" id="1_6nhc7"]
 [ext_resource type="FontFile" uid="uid://4nxqoysmbfjf" path="res://assets/fonts/old_london/OldLondon.ttf" id="2_4fq7r"]
+[ext_resource type="FontFile" uid="uid://b3kmea85k0dku" path="res://assets/fonts/enchanted_land/Enchanted Land.otf" id="2_jnh24"]
 
 [sub_resource type="Theme" id="Theme_pxcak"]
 
@@ -65,6 +66,7 @@ theme_override_constants/separation = 12
 
 [node name="TitleLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=24719358]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jnh24")
 text = "Shop"
 label_settings = SubResource("LabelSettings_dnkej")
 horizontal_alignment = 1
@@ -72,6 +74,7 @@ horizontal_alignment = 1
 [node name="CoinsLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=291945622]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jnh24")
 text = "Coins: 0"
 label_settings = SubResource("LabelSettings_fw547")
 horizontal_alignment = 2

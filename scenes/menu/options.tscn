@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ya4n7nfvovnx"]
 
+[ext_resource type="Theme" uid="uid://duoy2ccfonxno" path="res://assets/ui/merchant_theme.tres" id="1_5ak6t"]
 [ext_resource type="Script" uid="uid://be6vuofnyop5r" path="res://scenes/menu/options.gd" id="1_kixs7"]
 
 [node name="OptionsMenu" type="Control" unique_id=1833312848]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5ak6t")
 script = ExtResource("1_kixs7")
 
 [node name="OptionsMenu" type="CenterContainer" parent="." unique_id=1403849777]
@@ -19,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5ak6t")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu" unique_id=801682094]
 layout_mode = 2
@@ -26,7 +29,9 @@ theme_override_constants/separation = 20
 
 [node name="TitleLabel" type="Label" parent="OptionsMenu/VBoxContainer" unique_id=1420218896]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Options"
+horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="OptionsMenu/VBoxContainer" unique_id=498289440]
 layout_mode = 2

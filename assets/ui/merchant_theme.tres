@@ -1,0 +1,48 @@
+[gd_resource type="Theme" format=3 uid="uid://duoy2ccfonxno"]
+
+[ext_resource type="FontFile" uid="uid://b3kmea85k0dku" path="res://assets/fonts/enchanted_land/Enchanted Land.otf" id="1_16ysm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xn6kt"]
+bg_color = Color(0.14901961, 0.17254902, 0.14509805, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22745098, 0.25882354, 0.21960784, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hj162"]
+bg_color = Color(0.12156863, 0.14117648, 0.1254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22745098, 0.25882354, 0.21960784, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abwgq"]
+bg_color = Color(0.12156863, 0.14117648, 0.1254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22745098, 0.25882354, 0.21960784, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[resource]
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_16ysm")
+Button/styles/hover = SubResource("StyleBoxFlat_xn6kt")
+Button/styles/normal = SubResource("StyleBoxFlat_hj162")
+Button/styles/pressed = SubResource("StyleBoxFlat_hj162")
+Label/fonts/font = ExtResource("1_16ysm")
+Panel/styles/panel = SubResource("StyleBoxFlat_abwgq")

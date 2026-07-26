@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkt0klbudoi4j" path="res://scenes/menu/main_menu.gd" id="1_nl8w3"]
 [ext_resource type="Script" uid="uid://be6vuofnyop5r" path="res://scenes/menu/options.gd" id="2_3rkf3"]
+[ext_resource type="Theme" uid="uid://duoy2ccfonxno" path="res://assets/ui/merchant_theme.tres" id="2_247la"]
 
 [node name="MainMenu" type="Control" unique_id=1174499188]
 layout_mode = 3
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_247la")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1102943956]
 layout_mode = 2
@@ -27,7 +29,9 @@ theme_override_constants/separation = 16
 
 [node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=375446525]
 layout_mode = 2
-text = "MY PLAGUE"
+theme_override_font_sizes/font_size = 46
+text = "My Plague"
+horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1177626969]
 unique_name_in_owner = true
@@ -53,6 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_247la")
 script = ExtResource("2_3rkf3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu" unique_id=145037809]
@@ -65,7 +70,9 @@ theme_override_constants/separation = 20
 
 [node name="TitleLabel" type="Label" parent="OptionsMenu/VBoxContainer" unique_id=1784376108]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Options"
+horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="OptionsMenu/VBoxContainer" unique_id=644241456]
 layout_mode = 2
@@ -75,17 +82,20 @@ columns = 2
 
 [node name="Label" type="Label" parent="OptionsMenu/VBoxContainer/GridContainer" unique_id=504421524]
 layout_mode = 2
+theme_override_font_sizes/font_size = 22
 text = "Music"
 
 [node name="MusicSlider" type="HSlider" parent="OptionsMenu/VBoxContainer/GridContainer" unique_id=1663152356]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("2_247la")
 max_value = 1.0
 step = 0.01
 
 [node name="Label2" type="Label" parent="OptionsMenu/VBoxContainer/GridContainer" unique_id=1569444241]
 layout_mode = 2
+theme_override_font_sizes/font_size = 22
 text = "Effects"
 
 [node name="SfxSlider" type="HSlider" parent="OptionsMenu/VBoxContainer/GridContainer" unique_id=1474841303]
@@ -97,6 +107,7 @@ step = 0.01
 
 [node name="Label3" type="Label" parent="OptionsMenu/VBoxContainer/GridContainer" unique_id=1052826381]
 layout_mode = 2
+theme_override_font_sizes/font_size = 22
 text = "FullScreen"
 
 [node name="FullscreenCheck" type="CheckButton" parent="OptionsMenu/VBoxContainer/GridContainer" unique_id=216956132]
