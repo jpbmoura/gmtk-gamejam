@@ -37,6 +37,16 @@ var herb_count: int = 0
 var coins := 0
 var upgrades: Dictionary = {}
 
+func pray_1():
+	print('rezou 1')
+	
+func pray_2():
+	print('rezou 2')
+	remove_time(10)
+
+func pray_3():
+	print('rezou 3')
+
 func add_herb(val:int = 1):
 	herb_count += val
 	add_time(5)
@@ -81,6 +91,10 @@ func start_stage() -> void:
 
 func add_time(seconds: float) -> void:
 	time_left += seconds
+	time_changed.emit(time_left)
+	
+func remove_time(seconds: float) -> void:
+	time_left -= seconds
 	time_changed.emit(time_left)
 
 func tick(delta: float) -> void:

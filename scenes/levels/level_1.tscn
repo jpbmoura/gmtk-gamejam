@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bae1mipgdeaco" path="res://assets/sprites/jump-Sheet.png" id="5_dga24"]
 [ext_resource type="Texture2D" uid="uid://c64bdoegvmr1d" path="res://assets/sprites/tilesets/SewerTiles.png" id="5_dnkej"]
 [ext_resource type="Texture2D" uid="uid://jvbu3fmfvtn" path="res://assets/sprites/dash-Sheet.png" id="5_qxy0u"]
+[ext_resource type="Texture2D" uid="uid://bew1bkdd2uhru" path="res://assets/sprites/11.png" id="5_wvtie"]
 [ext_resource type="Texture2D" uid="uid://bxiknj3a8gggl" path="res://assets/particles/posion_2.png" id="6_oc4kc"]
 [ext_resource type="Texture2D" uid="uid://lfgc71g0g32n" path="res://assets/sprites/idle-Sheet.png" id="6_s8va5"]
 [ext_resource type="Texture2D" uid="uid://ql1mhm012e8h" path="res://assets/sprites/tilesets/InfernoTiles.png" id="6_wtwp4"]
@@ -24,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://luas87dw5v2w" path="res://assets/icons/4.png" id="12_o8s4s"]
 [ext_resource type="PackedScene" uid="uid://c7x503dumguwd" path="res://scenes/merchant/shop_ui.tscn" id="13_dnkej"]
 [ext_resource type="Texture2D" uid="uid://d01hi0lndfxjn" path="res://assets/icons/5.png" id="13_ebb2h"]
+[ext_resource type="PackedScene" uid="uid://bq04a8xbc7i2" path="res://scenes/entities/altar.tscn" id="14_cfnpk"]
 [ext_resource type="Shader" uid="uid://b5qpln6xmf7d8" path="res://scenes/levels/lava_shader.gdshader" id="14_v6ha0"]
 [ext_resource type="Texture2D" uid="uid://c88rb28n52p50" path="res://assets/sprites/acid.png" id="15_v6ha0"]
 [ext_resource type="Texture2D" uid="uid://m5crujal6ysv" path="res://assets/shaders/light_radial.png" id="16_gmpev"]
@@ -805,8 +807,13 @@ color = Color(0, 0.019607844, 0.05490196, 1)
 
 [node name="World" type="Node2D" parent="." unique_id=1252937482]
 
+[node name="Altar" parent="World" unique_id=124797444 instance=ExtResource("14_cfnpk")]
+position = Vector2(391, 32)
+sprite_texture = ExtResource("5_wvtie")
+on_collission = "pray_2"
+
 [node name="Herb" parent="World" unique_id=253410192 instance=ExtResource("3_qxy0u")]
-position = Vector2(265, 88)
+position = Vector2(515, 18)
 on_collission = "add_herb"
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="World" unique_id=1701809073]
