@@ -21,6 +21,18 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if player_in_range and event.is_action_pressed("interact") and !prayed:
-		Global.callv(on_collission, [])
+		var menu = preload("res://scenes/altar/altar_menu.tscn").instantiate()
+		get_tree().current_scene.add_child(menu)
+
+		menu.upgrade_selected.connect(func():
+			Global.callv(on_collission, [])
+		)
+
+		menu.open()
+
 		$PointLight2D.enabled = false
+		$Prompt.visible = false
+		prayed = true
+		$PointLight2D.enabled = false
+		$Prompt.visible = false
 		prayed = true

@@ -29,27 +29,59 @@ const CATALOG := {
 	},
 }
 
-@export var start_time := 30.0
+@export var start_time := 3.0
 var time_left := 0.0
 var timer_running := false
 var timer_started := false
 var herb_count: int = 0
 var coins := 0
 var upgrades: Dictionary = {}
+var herb_value = 5
+var control_enable = true
+var speed_modifier = 1
+var more_jumps = 0;
+var more_dash = false;
 
-func pray_1():
-	print('rezou 1')
+func reset_values():
+	time_left = 0.0
+	timer_running = false
+	timer_started = false
+	herb_count = 0
+	coins = 0
+	herb_value = 5
+	control_enable = true
+	speed_modifier = 1
+	more_jumps = 0;
+	more_dash = false;
+
+func altar_herb_upgrade():
+	herb_value = 10
 	
-func pray_2():
-	print('rezou 2')
-	remove_time(10)
-
-func pray_3():
-	print('rezou 3')
+func altar_speed_upgrade():
+	speed_modifier = 1.3
 
 func add_herb(val:int = 1):
 	herb_count += val
-	add_time(5)
+	add_time(herb_value)
+	
+func altar_dash_upgrade():
+	more_dash = true;
+	
+func altar_give_dash_upgrade():
+	# PRECISA ACIONAR A FLAG DE QUE TEM O UPGRADE COMPRADO (ELA AINDA NÃO EXISTE EU ACHO)
+	# LEMBRA DE RESETAR QUANDO A RUN ACABAR NA FUNC reset_values
+	return
+	
+func altar_give_double_jump_upgrade():
+	# PRECISA ACIONAR A FLAG DE QUE TEM O UPGRADE COMPRADO (ELA AINDA NÃO EXISTE EU ACHO)
+	# LEMBRA DE RESETAR QUANDO A RUN ACABAR NA FUNC reset_values
+	return
+	
+func altar_give_wall_jump_upgrade():
+	# PRECISA ACIONAR A FLAG DE QUE TEM O UPGRADE COMPRADO (ELA AINDA NÃO EXISTE EU ACHO)
+	# LEMBRA DE RESETAR QUANDO A RUN ACABAR NA FUNC reset_values
+	return
+
 
 func remove_herb(val:int = 1):
 	if herb_count - val < 0:
@@ -106,6 +138,8 @@ func tick(delta: float) -> void:
 		time_left = 0.0
 		timer_running = false
 		player_died.emit()
+		timer_started = false
+		reset_values()
 
 func start_timer(seconds: float) -> void:
 	if timer_started:

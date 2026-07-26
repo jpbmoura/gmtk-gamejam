@@ -36,6 +36,7 @@ var dash_used := false
 var dash_cooldown_timer := 0.0
 var facing := -1
 var was_on_floor := true
+var dash_charges := 1
 
 var ghost_timer: float = 0.0
 var ghost_interval: float = 0.02
@@ -44,7 +45,15 @@ var DASH_TIME = 0.2
 var DASH_SPEED = 800.0
 var DASH_COOLDOWN = 2.3
 
+func reset_dash_charges():
+	if Global.more_dash:
+		dash_charges = 2
+	else:
+		dash_charges = 1
+		
 func _ready() -> void:
+	reset_dash_charges()
+		
 	add_to_group("player")
 
 func teleport(pos: Vector2) -> void:
@@ -52,7 +61,7 @@ func teleport(pos: Vector2) -> void:
 	velocity = Vector2.ZERO
 	# --- limpa estado de movimento para não respawnar em dash/wall jump ---
 	dash_timer = 0.0
-	dash_used = false
+	reset_dash_charges()
 	wall_lock_timer = 0.0
 	buffer_timer = 0.0
 	coyote_timer = 0.0
@@ -60,12 +69,15 @@ func teleport(pos: Vector2) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if !Global.control_enable:
+		return
+		
 	var on_floor := is_on_floor()
 	var on_wall := is_on_wall_only()
 	# --- timers de chão ---
 	if on_floor:
 		if dash_cooldown_timer <= 2:
-			dash_used = false
+			reset_dash_charges()
 		coyote_timer = coyote_time
 		jumps_left = max_jumps
 	else:
@@ -130,8 +142,8 @@ func _physics_process(delta: float) -> void:
 
 	# --- dash ---
 	# ui_right twice to dash
-	if Input.is_action_just_pressed("dash") and not dash_used:
-		dash_used = true
+	if Input.is_action_just_pressed("dash") and dash_charges > 0:
+		dash_charges -= 1
 		dash_cooldown_timer = DASH_COOLDOWN
 		SfxManager.play("dash")
 
@@ -156,7 +168,7 @@ func _physics_process(delta: float) -> void:
 		if direction != 0:
 			facing = direction
 		if direction:
-			velocity.x = move_toward(velocity.x, direction * speed, acceleration * delta)
+			velocity.x = move_toward(velocity.x, direction * speed * Global.speed_modifier, acceleration * delta)
 			$AnimatedSprite2D/ParticlePoison.emitting = false
 			if direction < 0.0:
 				$AnimatedSprite2D.flip_h = false
