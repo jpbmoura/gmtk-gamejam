@@ -29,7 +29,7 @@ const CATALOG := {
 	},
 }
 
-@export var start_time := 3.0
+@export var start_time := 30.0
 var time_left := 0.0
 var timer_running := false
 var timer_started := false

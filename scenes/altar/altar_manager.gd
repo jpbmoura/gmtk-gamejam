@@ -57,6 +57,7 @@ func get_random_upgrades(amount := 3):
 	return pool.slice(0, amount)
 
 func apply_upgrade(id):
+	Global.remove_time(upgrades[id].price)
 	match id:
 		Upgrade.DASH:
 			Global.altar_give_dash_upgrade()
