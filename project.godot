@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+MusicManager="*uid://bkgtgaxpjsn0c"
 SaveSystem="*uid://cbuhw7p3ppnj1"
 TimeManager="*uid://cf5gg0b6hunw2"
 GameManager="*uid://bnurm7bxl3tsy"

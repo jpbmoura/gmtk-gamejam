@@ -760,7 +760,7 @@ player = NodePath("Player")
 z_index = -1
 offset_left = -4328.0
 offset_top = -4304.0
-offset_right = 5496.0
+offset_right = 5624.0
 offset_bottom = 880.0
 color = Color(0, 0.019607844, 0.05490196, 1)
 
