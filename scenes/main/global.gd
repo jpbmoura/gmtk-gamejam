@@ -29,12 +29,12 @@ const CATALOG := {
 	},
 }
 
-@export var start_time := 60.0
+@export var start_time := 50.0
 var time_left := 0.0
 var timer_running := false
 var timer_started := false
 var herb_count: int = 0
-var coins := 10000
+var coins := 0
 var upgrades: Dictionary = {}
 
 func add_herb(val:int = 1):
