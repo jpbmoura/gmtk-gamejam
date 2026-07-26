@@ -8,6 +8,8 @@ const SFX := {
   "collect": "res://assets/audio/sfx/collect.mp3"
 }
 
+const BUS_SFX := "SFX"
+
 func _ready() -> void:
 	GameManager.player_died.connect(func() -> void: play("death"))
 
@@ -18,6 +20,7 @@ func play(key: String, pitch: float = 1.0) -> void:
 	var p := AudioStreamPlayer.new()
 	p.stream = load(path)
 	p.pitch_scale = pitch
+	p.bus = BUS_SFX                  # ← todos os efeitos vão pro bus SFX
 	add_child(p)
 	p.finished.connect(p.queue_free)
 	p.play()
