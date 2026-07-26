@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bwlirdq1p58d"]
 
-[ext_resource type="Script" path="res://scenes/menu/credits.gd" id="1_cred0"]
+[ext_resource type="Script" uid="uid://cu81jsfekv0t5" path="res://scenes/menu/credits.gd" id="1_cred0"]
 [ext_resource type="Theme" uid="uid://duoy2ccfonxno" path="res://assets/ui/merchant_theme.tres" id="2_theme"]
 [ext_resource type="FontFile" uid="uid://4nxqoysmbfjf" path="res://assets/fonts/old_london/OldLondon.ttf" id="3_oldln"]
 [ext_resource type="FontFile" uid="uid://b3kmea85k0dku" path="res://assets/fonts/enchanted_land/Enchanted Land.otf" id="4_enchl"]
@@ -17,7 +17,7 @@ font_size = 32
 font = ExtResource("4_enchl")
 font_size = 38
 
-[node name="Credits" type="Control"]
+[node name="Credits" type="Control" unique_id=1846178225]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cred0")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=25892616]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.019607844, 0.05490196, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=276583410]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -45,11 +45,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_theme")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=573942861]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="SurvivedLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="SurvivedLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1736265224]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -57,37 +57,37 @@ text = "You survived!"
 label_settings = SubResource("LabelSettings_survived")
 horizontal_alignment = 1
 
-[node name="NamesBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="NamesBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=371894013]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Name1" type="Label" parent="CenterContainer/VBoxContainer/NamesBox"]
+[node name="Name1" type="Label" parent="CenterContainer/VBoxContainer/NamesBox" unique_id=1970395893]
 layout_mode = 2
 text = "Arthur Warmling"
 label_settings = SubResource("LabelSettings_name")
 horizontal_alignment = 1
 
-[node name="Name2" type="Label" parent="CenterContainer/VBoxContainer/NamesBox"]
+[node name="Name2" type="Label" parent="CenterContainer/VBoxContainer/NamesBox" unique_id=989655475]
 layout_mode = 2
 text = "João Pedro de Moura"
 label_settings = SubResource("LabelSettings_name")
 horizontal_alignment = 1
 
-[node name="Name3" type="Label" parent="CenterContainer/VBoxContainer/NamesBox"]
+[node name="Name3" type="Label" parent="CenterContainer/VBoxContainer/NamesBox" unique_id=388930320]
 layout_mode = 2
 text = "José Heringer"
 label_settings = SubResource("LabelSettings_name")
 horizontal_alignment = 1
 
-[node name="Name4" type="Label" parent="CenterContainer/VBoxContainer/NamesBox"]
+[node name="Name4" type="Label" parent="CenterContainer/VBoxContainer/NamesBox" unique_id=446105331]
 layout_mode = 2
 text = "Vinicius Anacleto"
 label_settings = SubResource("LabelSettings_name")
 horizontal_alignment = 1
 
-[node name="ThanksLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="ThanksLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=80824914]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2

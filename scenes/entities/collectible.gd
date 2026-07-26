@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 	time_passed += delta
 	var wave := (sin(time_passed * frequency) + 1.0) * 0.5
 	$Sprite.position.y = start_y - (wave * amplitude)
-	
+
 func _on_body_entered(body: Node2D):
 	Global.callv(on_collission, [1])
 	queue_free()
