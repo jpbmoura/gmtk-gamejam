@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://lirb51f3t1vn" path="res://scenes/merchant/shop_ui.gd" id="1_6nhc7"]
 [ext_resource type="FontFile" uid="uid://4nxqoysmbfjf" path="res://assets/fonts/old_london/OldLondon.ttf" id="2_4fq7r"]
 [ext_resource type="FontFile" uid="uid://b3kmea85k0dku" path="res://assets/fonts/enchanted_land/Enchanted Land.otf" id="2_jnh24"]
+[ext_resource type="Theme" uid="uid://duoy2ccfonxno" path="res://assets/ui/merchant_theme.tres" id="4_ffpg8"]
 
 [sub_resource type="Theme" id="Theme_pxcak"]
 
@@ -28,8 +29,6 @@ font_size = 68
 font = ExtResource("2_4fq7r")
 font_size = 32
 
-[sub_resource type="Theme" id="Theme_jnh24"]
-
 [node name="ShopUI" type="CanvasLayer" unique_id=1797039014 node_paths=PackedStringArray("item_container", "coins_label")]
 process_mode = 3
 script = ExtResource("1_6nhc7")
@@ -45,7 +44,7 @@ grow_vertical = 2
 theme = SubResource("Theme_pxcak")
 
 [node name="Panel" type="Panel" parent="CenterContainer" unique_id=575656462]
-custom_minimum_size = Vector2(420, 400)
+custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fw547")
 
@@ -81,4 +80,4 @@ horizontal_alignment = 2
 
 [node name="ItemContainer" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/VBoxContainer" unique_id=736990226]
 layout_mode = 2
-theme = SubResource("Theme_jnh24")
+theme = ExtResource("4_ffpg8")

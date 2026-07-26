@@ -3,6 +3,7 @@ extends CanvasLayer
 
 @export var item_container: VBoxContainer
 @export var coins_label: Label
+@export var close_button_height := 36
 
 const ITEM_SCENE := preload("res://scenes/ui/shop_item.tscn")
 
@@ -34,6 +35,7 @@ func _build_items() -> void:
 
 	var close_btn := Button.new()
 	close_btn.text = "Close (ESC)"
+	close_btn.custom_minimum_size = Vector2(0, close_button_height)
 	close_btn.pressed.connect(close)
 	item_container.add_child(close_btn)
 
