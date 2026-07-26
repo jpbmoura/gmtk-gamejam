@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-MusicManager="*uid://bkgtgaxpjsn0c"
 SaveSystem="*uid://cbuhw7p3ppnj1"
 TimeManager="*uid://cf5gg0b6hunw2"
 GameManager="*uid://bnurm7bxl3tsy"
+SfxManager="*uid://k0i6gsfd33jl"
 Settings="*uid://bx0sv7okla5gd"
 Global="*uid://d1tannesl6ffh"
 
@@ -33,6 +33,10 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/scale=1.5
+
+[global_group]
+
+musica=""
 
 [input]
 

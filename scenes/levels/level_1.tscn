@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bnxug3x3taa6e" path="res://scenes/levels/level_1.gd" id="1_6761a"]
 [ext_resource type="Script" uid="uid://bxowh1g00b0lj" path="res://scenes/player/player.gd" id="2_x42e6"]
+[ext_resource type="Script" uid="uid://dimx6uul2q3x6" path="res://scenes/main/audio_manager.gd" id="3_np2pn"]
 [ext_resource type="PackedScene" uid="uid://cee8qhtklfv4v" path="res://scenes/entities/collectible.tscn" id="3_qxy0u"]
 [ext_resource type="Texture2D" uid="uid://ccdtey5ws8o1f" path="res://assets/sprites/tilesets/CastleTiles.png" id="4_iav0o"]
 [ext_resource type="Script" uid="uid://3clmk6063l62" path="res://scenes/levels/killzone.gd" id="4_x42e6"]
@@ -20,6 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://c7x503dumguwd" path="res://scenes/merchant/shop_ui.tscn" id="13_dnkej"]
 [ext_resource type="Shader" uid="uid://b5qpln6xmf7d8" path="res://scenes/levels/lava_shader.gdshader" id="14_v6ha0"]
 [ext_resource type="Texture2D" uid="uid://c88rb28n52p50" path="res://assets/sprites/acid.png" id="15_v6ha0"]
+[ext_resource type="Texture2D" uid="uid://m5crujal6ysv" path="res://assets/shaders/light_radial.png" id="16_gmpev"]
+[ext_resource type="AudioStream" uid="uid://dlgr3scadyai2" path="res://assets/audio/music/skeleton.mp3" id="17_bahl2"]
+[ext_resource type="Script" uid="uid://bousnguy8l3oy" path="res://scenes/main/theme_handler.gd" id="19_v6ha0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnkej"]
 texture = ExtResource("4_iav0o")
@@ -750,11 +754,23 @@ shader_parameter/wave_strength = 0.015
 shader_parameter/wave_speed = 2.0
 shader_parameter/wave_freq = 8.0
 shader_parameter/glow = 0.15
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwgpx"]
+size = Vector2(20, 204)
+
+[sub_resource type="Environment" id="Environment_dwgpx"]
+glow_enabled = true
+glow_intensity = 8.0
 
 [node name="Level1" type="Node2D" unique_id=2117434212 node_paths=PackedStringArray("spawn", "player")]
 script = ExtResource("1_6761a")
 spawn = NodePath("Spawn")
 player = NodePath("Player")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1234136214 groups=["musica"]]
+stream = ExtResource("17_bahl2")
+autoplay = true
+parameters/looping = true
+script = ExtResource("3_np2pn")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=597843656]
 z_index = -1
@@ -860,6 +876,11 @@ region_enabled = true
 region_rect = Rect2(0, 0, 2000, 1024)
 script = ExtResource("9_np2pn")
 
+[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=845494201]
+scale = Vector2(2, 2)
+color = Color(0.99999994, 0.8144629, 0.39129108, 1)
+texture = ExtResource("16_gmpev")
+
 [node name="DebugOverlay" type="CanvasLayer" parent="." unique_id=990117488 node_paths=PackedStringArray("player")]
 script = ExtResource("7_oc4kc")
 player = NodePath("../Player")
@@ -870,3 +891,17 @@ shop_ui = NodePath("../ShopUI")
 
 [node name="ShopUI" parent="." unique_id=1797039014 instance=ExtResource("13_dnkej")]
 visible = false
+
+[node name="MusicHandler" type="Area2D" parent="." unique_id=162346447]
+script = ExtResource("19_v6ha0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicHandler" unique_id=1674064353]
+position = Vector2(272, 0)
+shape = SubResource("RectangleShape2D_dwgpx")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1653975298]
+color = Color(0.51902056, 0.52039385, 0.6426351, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=790493594]
+environment = SubResource("Environment_dwgpx")
+

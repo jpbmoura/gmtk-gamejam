@@ -10,3 +10,4 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	body.velocity = Vector2.ZERO
 	body.global_position = spawn.global_position
+	GameManager.player_died.emit()

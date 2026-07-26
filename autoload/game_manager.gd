@@ -39,12 +39,14 @@ func go_to_menu() -> void:
 
 func kill_player() -> void:
     if not run_active or _dying:
-      return
+        print(">>> kill_player BLOQUEADO: run_active=", run_active, " _dying=", _dying)
+        return
     _dying = true
     TimeManager.register_death()
     var players := get_tree().get_nodes_in_group("player")
     if not players.is_empty() and players[0].has_method("teleport"):
       players[0].teleport(checkpoint_position)
+    print(">>> player_died EMITIDO")
     player_died.emit()
     await get_tree().process_frame
     _dying = false
