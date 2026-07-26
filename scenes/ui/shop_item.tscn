@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drpfs12fhi5rd" path="res://scenes/ui/shop_item.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://bf1agc0dtsawy" path="res://assets/icons/1.png" id="2_b8nro"]
+[ext_resource type="FontFile" uid="uid://b3kmea85k0dku" path="res://assets/fonts/enchanted_land/Enchanted Land.otf" id="2_c1h1j"]
 [ext_resource type="Texture2D" uid="uid://d2rs8spum5e7j" path="res://assets/icons/2.png" id="3_c1h1j"]
 [ext_resource type="Texture2D" uid="uid://cdkiptusk6ey8" path="res://assets/icons/3.png" id="4_icpiq"]
 [ext_resource type="Texture2D" uid="uid://luas87dw5v2w" path="res://assets/icons/4.png" id="5_g5pjb"]
@@ -77,17 +78,22 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_c1h1j")
+theme_override_font_sizes/font_size = 18
 text = "Nome"
 
 [node name="LevelLabel" type="Label" parent="HBox/Info/TopRow" unique_id=947735625]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c1h1j")
+theme_override_font_sizes/font_size = 16
 text = "Nv 0"
 
 [node name="DescLabel" type="Label" parent="HBox/Info" unique_id=1264090607]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("2_c1h1j")
+theme_override_font_sizes/font_size = 16
 text = "Descrição"
 
 [node name="CostBadge" type="PanelContainer" parent="HBox" unique_id=988323764]
@@ -112,6 +118,8 @@ stretch_mode = 5
 [node name="CostLabel" type="Label" parent="HBox/CostBadge/CostHBox" unique_id=2059468143]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c1h1j")
+theme_override_font_sizes/font_size = 18
 text = "0"
 
 [node name="SoldOutCheck" type="Label" parent="HBox" unique_id=742433351]
