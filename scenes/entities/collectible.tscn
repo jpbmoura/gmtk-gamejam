@@ -1,18 +1,16 @@
 [gd_scene format=3 uid="uid://cee8qhtklfv4v"]
 
 [ext_resource type="Script" uid="uid://cj76t30lsviyr" path="res://scenes/entities/collectible.gd" id="1_xyy1n"]
-[ext_resource type="Texture2D" uid="uid://53xbwqhfnvf6" path="res://assets/sprites/herb.png" id="2_y3nx4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1jwn"]
 size = Vector2(10, 20)
 
 [node name="Collectible" type="Area2D" unique_id=1819034278]
 script = ExtResource("1_xyy1n")
-sprite_texture = ExtResource("2_y3nx4")
 amplitude = 5.0
 frequency = 2.0
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=13175882]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=368364618]
 scale = Vector2(0.24999997, 0.24999999)
 
 [node name="Particles" type="CPUParticles2D" parent="Sprite" unique_id=87308781]

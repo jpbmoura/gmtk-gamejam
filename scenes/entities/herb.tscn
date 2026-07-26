@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dw5re3db5e5nq"]
+
+[ext_resource type="PackedScene" uid="uid://cee8qhtklfv4v" path="res://scenes/entities/collectible.tscn" id="1_hll0n"]
+[ext_resource type="Texture2D" uid="uid://53xbwqhfnvf6" path="res://assets/sprites/herb.png" id="2_32f41"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32f41"]
+atlas = ExtResource("2_32f41")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83qlk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32f41")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Collectible" unique_id=1819034278 instance=ExtResource("1_hll0n")]
+
+[node name="Sprite" parent="." index="0" unique_id=368364618]
+sprite_frames = SubResource("SpriteFrames_83qlk")
+frame_progress = 0.1222375
