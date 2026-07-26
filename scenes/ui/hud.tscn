@@ -85,7 +85,7 @@ unique_name_in_owner = true
 position = Vector2(-16, 18)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_hqnrr")
-frame_progress = 0.8222265
+frame_progress = 0.94790924
 
 [node name="CoinsLabel" type="Label" parent="TopRight/CoinsBox" unique_id=1431176942]
 unique_name_in_owner = true
