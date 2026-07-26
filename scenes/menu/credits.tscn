@@ -65,13 +65,13 @@ theme_override_constants/separation = 8
 
 [node name="Name1" type="Label" parent="CenterContainer/VBoxContainer/NamesBox"]
 layout_mode = 2
-text = "Arthur Warming"
+text = "Arthur Warmling"
 label_settings = SubResource("LabelSettings_name")
 horizontal_alignment = 1
 
 [node name="Name2" type="Label" parent="CenterContainer/VBoxContainer/NamesBox"]
 layout_mode = 2
-text = "João Pedro"
+text = "João Pedro de Moura"
 label_settings = SubResource("LabelSettings_name")
 horizontal_alignment = 1
 
