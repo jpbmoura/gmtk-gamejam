@@ -1,0 +1,96 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/menu/credits.gd" id="1_cred0"]
+[ext_resource type="Theme" uid="uid://duoy2ccfonxno" path="res://assets/ui/merchant_theme.tres" id="2_theme"]
+[ext_resource type="FontFile" uid="uid://4nxqoysmbfjf" path="res://assets/fonts/old_london/OldLondon.ttf" id="3_oldln"]
+[ext_resource type="FontFile" uid="uid://b3kmea85k0dku" path="res://assets/fonts/enchanted_land/Enchanted Land.otf" id="4_enchl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_survived"]
+font = ExtResource("3_oldln")
+font_size = 68
+
+[sub_resource type="LabelSettings" id="LabelSettings_name"]
+font = ExtResource("4_enchl")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_thanks"]
+font = ExtResource("4_enchl")
+font_size = 38
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cred0")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.019607844, 0.05490196, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="SurvivedLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "You survived!"
+label_settings = SubResource("LabelSettings_survived")
+horizontal_alignment = 1
+
+[node name="NamesBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Name1" type="Label" parent="CenterContainer/VBoxContainer/NamesBox"]
+layout_mode = 2
+text = "Arthur Warming"
+label_settings = SubResource("LabelSettings_name")
+horizontal_alignment = 1
+
+[node name="Name2" type="Label" parent="CenterContainer/VBoxContainer/NamesBox"]
+layout_mode = 2
+text = "João Pedro"
+label_settings = SubResource("LabelSettings_name")
+horizontal_alignment = 1
+
+[node name="Name3" type="Label" parent="CenterContainer/VBoxContainer/NamesBox"]
+layout_mode = 2
+text = "José Heringer"
+label_settings = SubResource("LabelSettings_name")
+horizontal_alignment = 1
+
+[node name="Name4" type="Label" parent="CenterContainer/VBoxContainer/NamesBox"]
+layout_mode = 2
+text = "Vinicius Anacleto"
+label_settings = SubResource("LabelSettings_name")
+horizontal_alignment = 1
+
+[node name="ThanksLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Thank you for playing."
+label_settings = SubResource("LabelSettings_thanks")
+horizontal_alignment = 1
