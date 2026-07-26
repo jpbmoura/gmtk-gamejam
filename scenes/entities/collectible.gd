@@ -5,6 +5,7 @@ extends Area2D
 @export_enum("add_herb", "remove_herb", "add_coins") var on_collission: String = ""
 @export var particle_on: bool = true
 @export var particle_color: Color = Color(0.97, 0.97, 0, 1)
+@export var collect_sound: String = "collect"
 
 @onready var start_y: float = $Sprite.position.y
 
@@ -26,4 +27,5 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	if on_collission != "" and Global.has_method(on_collission):
 		Global.callv(on_collission, [1])
+	SfxManager.play(collect_sound)
 	queue_free()
