@@ -9,8 +9,7 @@ func _ready() -> void:
 	Global.time_changed.connect(_on_time_changed)
 	Global.coins_changed.connect(_on_coins_changed)
 	time_label.hide()
-	_on_coins_changed(Global.coins)   # inicializa o label de moedas
-	print("HUD carregou. time_label = ", %TimeLabel, " coins_label = ", %CoinsLabel)
+	_on_coins_changed(Global.coins)
 
 
 func _on_time_changed(seconds: float) -> void:

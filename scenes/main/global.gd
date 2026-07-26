@@ -29,7 +29,7 @@ const CATALOG := {
 	},
 }
 
-@export var stage_start_time := 30.0
+@export var start_time := 60.0
 var time_left := 0.0
 var timer_running := false
 var timer_started := false
@@ -74,7 +74,7 @@ func reset() -> void:
 	coins_changed.emit(coins)
 
 func start_stage() -> void:
-	time_left = stage_start_time
+	time_left = start_time
 	timer_running = true
 	time_changed.emit(time_left)
 
