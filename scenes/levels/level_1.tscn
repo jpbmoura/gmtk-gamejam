@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://c7x503dumguwd" path="res://scenes/merchant/shop_ui.tscn" id="13_dnkej"]
 [ext_resource type="Shader" uid="uid://b5qpln6xmf7d8" path="res://scenes/levels/lava_shader.gdshader" id="14_v6ha0"]
 [ext_resource type="Texture2D" uid="uid://c88rb28n52p50" path="res://assets/sprites/acid.png" id="15_v6ha0"]
+[ext_resource type="PackedScene" uid="uid://pndknrukimgh" path="res://scenes/entities/start_sign.tscn" id="16_mkypq"]
+[ext_resource type="PackedScene" uid="uid://cmk37nsgv0lsi" path="res://scenes/ui/hud.tscn" id="17_ndtll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnkej"]
 texture = ExtResource("4_iav0o")
@@ -840,6 +842,22 @@ angle_max = 499.0
 scale_amount_max = 4.0
 color = Color(0.16078432, 0.14901961, 0.28627452, 1)
 
+[node name="DebugOverlay" type="CanvasLayer" parent="." unique_id=990117488 node_paths=PackedStringArray("player")]
+script = ExtResource("7_oc4kc")
+player = NodePath("../Player")
+
+[node name="Merchant" parent="." unique_id=2053562257 node_paths=PackedStringArray("shop_ui") instance=ExtResource("12_iav0o")]
+position = Vector2(-176, 80)
+shop_ui = NodePath("../ShopUI")
+
+[node name="StartSign" parent="." unique_id=1470581300 instance=ExtResource("16_mkypq")]
+position = Vector2(288, 81)
+
+[node name="Hud" parent="." unique_id=1341107353 instance=ExtResource("17_ndtll")]
+
+[node name="ShopUI" parent="." unique_id=1797039014 instance=ExtResource("13_dnkej")]
+visible = false
+
 [node name="Killzone" type="Area2D" parent="." unique_id=1751670375 node_paths=PackedStringArray("spawn")]
 position = Vector2(160, 96)
 script = ExtResource("4_x42e6")
@@ -859,14 +877,3 @@ texture = ExtResource("15_v6ha0")
 region_enabled = true
 region_rect = Rect2(0, 0, 2000, 1024)
 script = ExtResource("9_np2pn")
-
-[node name="DebugOverlay" type="CanvasLayer" parent="." unique_id=990117488 node_paths=PackedStringArray("player")]
-script = ExtResource("7_oc4kc")
-player = NodePath("../Player")
-
-[node name="Merchant" parent="." unique_id=2053562257 node_paths=PackedStringArray("shop_ui") instance=ExtResource("12_iav0o")]
-position = Vector2(-176, 80)
-shop_ui = NodePath("../ShopUI")
-
-[node name="ShopUI" parent="." unique_id=1797039014 instance=ExtResource("13_dnkej")]
-visible = false

@@ -2,7 +2,8 @@ extends Node
 
 signal coins_changed(total: int)
 signal upgrade_bought(id: String)
-
+signal time_changed(seconds_left: float)
+signal player_died
 
 const CATALOG := {
 	"double_jump": {
@@ -28,10 +29,13 @@ const CATALOG := {
 	},
 }
 
-
+@export var stage_start_time := 30.0
+var time_left := 0.0
+var timer_running := false
+var timer_started := false
 var herb_count: int = 0
 var coins := 10000
-var upgrades: Dictionary = {}   # id -> nível comprado
+var upgrades: Dictionary = {}
 
 func add_herb(val:int = 1):
 	herb_count += val
@@ -68,3 +72,30 @@ func reset() -> void:
 	coins = 0
 	upgrades.clear()
 	coins_changed.emit(coins)
+
+func start_stage() -> void:
+	time_left = stage_start_time
+	timer_running = true
+	time_changed.emit(time_left)
+
+func add_time(seconds: float) -> void:
+	time_left += seconds
+	time_changed.emit(time_left)
+
+func tick(delta: float) -> void:
+	if not timer_running:
+		return
+	time_left -= delta
+	time_changed.emit(time_left)
+	if time_left <= 0.0:
+		time_left = 0.0
+		timer_running = false
+		player_died.emit()
+
+func start_timer(seconds: float) -> void:
+	if timer_started:
+		return          # já começou, ignora
+	timer_started = true
+	time_left = seconds
+	timer_running = true
+	time_changed.emit(time_left)

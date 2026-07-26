@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://pndknrukimgh"]
+
+[ext_resource type="Script" uid="uid://8noprqkep640" path="res://scenes/entities/start_sign.gd" id="1_ou2h3"]
+[ext_resource type="Texture2D" uid="uid://c1luwk75wo2h4" path="res://assets/sprites/start_signal_2.png" id="2_mr7je"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkypq"]
+size = Vector2(32, 32)
+
+[node name="StartSign" type="Area2D" unique_id=1470581300]
+script = ExtResource("1_ou2h3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1076613692]
+texture = ExtResource("2_mr7je")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=159651951]
+shape = SubResource("RectangleShape2D_mkypq")
