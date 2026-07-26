@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var ghost_trail_scene : PackedScene
+
 @export_group("Movimento")
 @export var speed := 300.0
 @export var acceleration := 2500.0
@@ -11,7 +13,7 @@ extends CharacterBody2D
 @export var fall_multiplier := 1.4
 @export var max_jumps := 2
 @export var double_jump_factor := 1.0
-@export var coyote_time := 0.12
+@export var coyote_time := 5
 @export var jump_buffer_time := 0.12
 @export var jump_cut := 0.45
 
@@ -34,6 +36,9 @@ var dash_used := false
 var dash_cooldown_timer := 0.0
 var facing := -1
 
+var ghost_timer : float = 0.0
+var ghost_interval : float = 0.02
+
 var DASH_TIME = 0.2
 var DASH_SPEED = 800.0
 var DASH_COOLDOWN = 2.3
@@ -46,7 +51,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var on_floor := is_on_floor()
 	var on_wall := is_on_wall_only()
-
 	# --- timers de chão ---
 	if on_floor:
 		if dash_cooldown_timer <= 2:
@@ -160,10 +164,13 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D/ParticlePoison.emitting = true
 
 		# --- animation ---
-
 			# dash
 	if dash_timer > 0.0:
 		$AnimatedSprite2D.play("dash")
+		ghost_timer -= delta
+		if ghost_timer <= 0:
+			ghost_timer = ghost_interval
+			spawn_ghost_trail()
 	else:
 			# idle
 		if velocity.x == 0.0 and on_floor:
@@ -180,3 +187,10 @@ func _physics_process(delta: float) -> void:
 
 
 	move_and_slide()
+	
+func spawn_ghost_trail():
+	var ghost = ghost_trail_scene.instantiate()
+	get_parent().add_child(ghost)
+
+	ghost.global_position = global_position
+	ghost.setup($AnimatedSprite2D)

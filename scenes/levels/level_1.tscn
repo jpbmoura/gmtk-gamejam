@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dh5v4fq1jg068" path="res://assets/sprites/tilesets/ExtraTiles1.png" id="7_iwr0g"]
 [ext_resource type="Script" uid="uid://bwy648e6acgts" path="res://scenes/levels/debug_overlay.gd" id="7_oc4kc"]
 [ext_resource type="Texture2D" uid="uid://ctdqm0livm7x5" path="res://assets/sprites/run-Sheet.png" id="7_s8va5"]
+[ext_resource type="PackedScene" uid="uid://n8jo42ljb7bb" path="res://scenes/player/ghost_trail.tscn" id="9_bahl2"]
 [ext_resource type="PackedScene" uid="uid://bcekfs1yigsqj" path="res://scenes/merchant/merchant.tscn" id="12_iav0o"]
 [ext_resource type="PackedScene" uid="uid://c7x503dumguwd" path="res://scenes/merchant/shop_ui.tscn" id="13_dnkej"]
 
@@ -745,6 +746,7 @@ spawn = NodePath("Spawn")
 player = NodePath("Player")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=597843656]
+z_index = -1
 offset_left = -4328.0
 offset_top = -4304.0
 offset_right = 5496.0
@@ -778,6 +780,7 @@ debug_color = Color(0, 0.20784314, 0.69803923, 0.41960785)
 [node name="Player" type="CharacterBody2D" parent="." unique_id=837359898]
 position = Vector2(0, 160)
 script = ExtResource("2_x42e6")
+ghost_trail_scene = ExtResource("9_bahl2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=727390925]
 position = Vector2(0, -80)
