@@ -216,7 +216,7 @@ func _physics_process(delta: float) -> void:
 	# --- landing ---
 	var now_on_floor := is_on_floor()
 	if now_on_floor and not was_on_floor and fall_speed > 100.0:
-		SfxManager.play("landing")
+		SfxManager.play("landing", randf_range(0.7,1))
 	was_on_floor = now_on_floor
 
 func spawn_ghost_trail():
