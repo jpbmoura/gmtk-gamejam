@@ -4,6 +4,10 @@ var _ativado := false
 
 func _ready() -> void:
 	body_entered.connect(_on_entered)
+	GameManager.player_died.connect(_resetar)
+
+func _resetar() -> void:
+	_ativado = false
 
 func _on_entered(body: Node2D) -> void:
 	if _ativado:

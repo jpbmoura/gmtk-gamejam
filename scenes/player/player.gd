@@ -35,6 +35,7 @@ var dash_direction := 0.0
 var dash_used := false
 var dash_cooldown_timer := 0.0
 var facing := -1
+var was_on_floor := true
 
 var ghost_timer : float = 0.0
 var ghost_interval : float = 0.02
@@ -122,6 +123,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("dash") and not dash_used:
 		dash_used = true
 		dash_cooldown_timer = DASH_COOLDOWN
+		SfxManager.play("dash")
 
 		if Input.get_axis("ui_left", "ui_right"):
 			dash_direction = Input.get_axis("ui_left", "ui_right")
@@ -186,8 +188,15 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.play("falling_air")
 
 
+	var fall_speed := velocity.y
 	move_and_slide()
-	
+
+	# --- landing ---
+	var now_on_floor := is_on_floor()
+	if now_on_floor and not was_on_floor and fall_speed > 100.0:
+		SfxManager.play("landing")
+	was_on_floor = now_on_floor
+
 func spawn_ghost_trail():
 	var ghost = ghost_trail_scene.instantiate()
 	get_parent().add_child(ghost)
