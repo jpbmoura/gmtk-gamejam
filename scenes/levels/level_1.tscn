@@ -25,7 +25,11 @@
 [ext_resource type="Texture2D" uid="uid://luas87dw5v2w" path="res://assets/icons/4.png" id="12_o8s4s"]
 [ext_resource type="PackedScene" uid="uid://c7x503dumguwd" path="res://scenes/merchant/shop_ui.tscn" id="13_dnkej"]
 [ext_resource type="Texture2D" uid="uid://d01hi0lndfxjn" path="res://assets/icons/5.png" id="13_ebb2h"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://bq04a8xbc7i2" path="res://scenes/entities/altar.tscn" id="14_cfnpk"]
+=======
+[ext_resource type="PackedScene" uid="uid://cj63cwn7fwqf0" path="res://scenes/entities/hazards/saw.tscn" id="14_o8s4s"]
+>>>>>>> f5289a4 (saw)
 [ext_resource type="Shader" uid="uid://b5qpln6xmf7d8" path="res://scenes/levels/lava_shader.gdshader" id="14_v6ha0"]
 [ext_resource type="Texture2D" uid="uid://c88rb28n52p50" path="res://assets/sprites/acid.png" id="15_v6ha0"]
 [ext_resource type="Texture2D" uid="uid://m5crujal6ysv" path="res://assets/shaders/light_radial.png" id="16_gmpev"]
@@ -902,6 +906,123 @@ position = Vector2(207, 13)
 sprite_texture = SubResource("AnimatedTexture_x7jkp")
 on_collission = "add_coins"
 
+[node name="Saw" parent="World" unique_id=1745430376 instance=ExtResource("14_o8s4s")]
+position = Vector2(1288, -192)
+
+[node name="Saw2" parent="World" unique_id=1141334064 instance=ExtResource("14_o8s4s")]
+position = Vector2(1344, -192)
+
+[node name="Saw3" parent="World" unique_id=1576053478 instance=ExtResource("14_o8s4s")]
+position = Vector2(1400, -192)
+
+[node name="Saw4" parent="World" unique_id=1025870052 instance=ExtResource("14_o8s4s")]
+position = Vector2(1456, -192)
+
+[node name="Saw5" parent="World" unique_id=379894013 instance=ExtResource("14_o8s4s")]
+position = Vector2(1512, -192)
+
+[node name="Saw6" parent="World" unique_id=47102988 instance=ExtResource("14_o8s4s")]
+position = Vector2(1568, -192)
+
+[node name="Saw7" parent="World" unique_id=394631298 instance=ExtResource("14_o8s4s")]
+position = Vector2(1624, -192)
+
+[node name="Saw8" parent="World" unique_id=1757927850 instance=ExtResource("14_o8s4s")]
+position = Vector2(1680, -192)
+
+[node name="Saw9" parent="World" unique_id=412100994 instance=ExtResource("14_o8s4s")]
+position = Vector2(1736, -192)
+
+[node name="Saw10" parent="World" unique_id=1032666611 instance=ExtResource("14_o8s4s")]
+position = Vector2(1792, -192)
+
+[node name="Saw11" parent="World" unique_id=554569237 instance=ExtResource("14_o8s4s")]
+position = Vector2(1848, -192)
+
+[node name="Saw12" parent="World" unique_id=336514336 instance=ExtResource("14_o8s4s")]
+position = Vector2(1904, -192)
+
+[node name="Saw13" parent="World" unique_id=1520644582 instance=ExtResource("14_o8s4s")]
+position = Vector2(1960, -192)
+
+[node name="Saw14" parent="World" unique_id=2035495633 instance=ExtResource("14_o8s4s")]
+position = Vector2(2016, -192)
+
+[node name="Saw15" parent="World" unique_id=1938373136 instance=ExtResource("14_o8s4s")]
+position = Vector2(2072, -192)
+
+[node name="Saw16" parent="World" unique_id=1598551043 instance=ExtResource("14_o8s4s")]
+position = Vector2(2128, -192)
+
+[node name="Saw17" parent="World" unique_id=85071422 instance=ExtResource("14_o8s4s")]
+position = Vector2(2184, -192)
+
+[node name="Saw18" parent="World" unique_id=600969162 instance=ExtResource("14_o8s4s")]
+position = Vector2(2240, -192)
+
+[node name="Saw19" parent="World" unique_id=1846440264 instance=ExtResource("14_o8s4s")]
+position = Vector2(2296, -192)
+
+[node name="Saw20" parent="World" unique_id=2103705508 instance=ExtResource("14_o8s4s")]
+position = Vector2(2352, -192)
+
+[node name="Saw21" parent="World" unique_id=1164733698 instance=ExtResource("14_o8s4s")]
+position = Vector2(2408, -192)
+
+[node name="Saw22" parent="World" unique_id=248108647 instance=ExtResource("14_o8s4s")]
+position = Vector2(2464, -192)
+
+[node name="Saw23" parent="World" unique_id=720971409 instance=ExtResource("14_o8s4s")]
+position = Vector2(2520, -192)
+
+[node name="Saw24" parent="World" unique_id=659635174 instance=ExtResource("14_o8s4s")]
+position = Vector2(2576, -192)
+
+[node name="Saw25" parent="World" unique_id=1773624218 instance=ExtResource("14_o8s4s")]
+position = Vector2(2632, -192)
+
+[node name="Saw26" parent="World" unique_id=1235213448 instance=ExtResource("14_o8s4s")]
+position = Vector2(2688, -192)
+
+[node name="Saw27" parent="World" unique_id=1341073975 instance=ExtResource("14_o8s4s")]
+position = Vector2(2744, -192)
+
+[node name="Saw28" parent="World" unique_id=443828339 instance=ExtResource("14_o8s4s")]
+position = Vector2(2800, -192)
+
+[node name="Saw29" parent="World" unique_id=2119377895 instance=ExtResource("14_o8s4s")]
+position = Vector2(2856, -192)
+
+[node name="Saw30" parent="World" unique_id=841180166 instance=ExtResource("14_o8s4s")]
+position = Vector2(2912, -192)
+
+[node name="Saw31" parent="World" unique_id=1867371254 instance=ExtResource("14_o8s4s")]
+position = Vector2(2968, -192)
+
+[node name="Saw32" parent="World" unique_id=1245915424 instance=ExtResource("14_o8s4s")]
+position = Vector2(-240, -896)
+
+[node name="SpikeBasic" parent="World" unique_id=511453953 instance=ExtResource("25_7o3do")]
+position = Vector2(-360, -1008)
+
+[node name="Saw33" parent="World" unique_id=1143989773 instance=ExtResource("14_o8s4s")]
+position = Vector2(3120, 144)
+
+[node name="Saw34" parent="World" unique_id=2093711549 instance=ExtResource("14_o8s4s")]
+position = Vector2(3224, 176)
+
+[node name="Saw35" parent="World" unique_id=476340508 instance=ExtResource("14_o8s4s")]
+position = Vector2(3336, 136)
+
+[node name="Saw36" parent="World" unique_id=329452390 instance=ExtResource("14_o8s4s")]
+position = Vector2(3472, 64)
+
+[node name="Saw37" parent="World" unique_id=617410952 instance=ExtResource("14_o8s4s")]
+position = Vector2(3536, -32)
+
+[node name="Saw38" parent="World" unique_id=1616028869 instance=ExtResource("14_o8s4s")]
+position = Vector2(3592, -120)
+
 [node name="Spawn" type="Marker2D" parent="." unique_id=734893175]
 position = Vector2(0, 80)
 gizmo_extents = 36.3
@@ -1053,8 +1174,38 @@ color = Color(0.51902056, 0.52039385, 0.6426351, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=790493594]
 environment = SubResource("Environment_dwgpx")
 
-[node name="SpikeBasic" parent="." unique_id=511453953 instance=ExtResource("25_7o3do")]
+[node name="SpikeBasic" parent="." unique_id=1136731866 instance=ExtResource("25_7o3do")]
 position = Vector2(944, 80)
 
 [node name="SpikeBasic2" parent="." unique_id=1070753695 instance=ExtResource("25_7o3do")]
 position = Vector2(1680, 80)
+
+[node name="Saw" parent="." unique_id=224445367 instance=ExtResource("14_o8s4s")]
+position = Vector2(-336, -608)
+
+[node name="SpikeBasic3" parent="." unique_id=683936885 instance=ExtResource("25_7o3do")]
+position = Vector2(3728, -112)
+
+[node name="SpikeBasic4" parent="." unique_id=129983917 instance=ExtResource("25_7o3do")]
+position = Vector2(3808, -208)
+
+[node name="SpikeBasic5" parent="." unique_id=1888594723 instance=ExtResource("25_7o3do")]
+position = Vector2(3840, -208)
+
+[node name="SpikeBasic6" parent="." unique_id=1508017579 instance=ExtResource("25_7o3do")]
+position = Vector2(3872, -208)
+
+[node name="SpikeBasic7" parent="." unique_id=504123570 instance=ExtResource("25_7o3do")]
+position = Vector2(3904, -208)
+
+[node name="SpikeBasic8" parent="." unique_id=152878719 instance=ExtResource("25_7o3do")]
+position = Vector2(3936, -208)
+
+[node name="SpikeBasic9" parent="." unique_id=1994815749 instance=ExtResource("25_7o3do")]
+position = Vector2(3968, -208)
+
+[node name="SpikeBasic10" parent="." unique_id=2100081412 instance=ExtResource("25_7o3do")]
+position = Vector2(4000, -208)
+
+[node name="SpikeBasic11" parent="." unique_id=662179046 instance=ExtResource("25_7o3do")]
+position = Vector2(4032, -208)
