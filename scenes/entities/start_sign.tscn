@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1luwk75wo2h4" path="res://assets/sprites/start_signal_2.png" id="2_mr7je"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkypq"]
-size = Vector2(32, 32)
+size = Vector2(32, 64)
 
 [node name="StartSign" type="Area2D" unique_id=1470581300]
 script = ExtResource("1_ou2h3")
@@ -13,4 +13,5 @@ script = ExtResource("1_ou2h3")
 texture = ExtResource("2_mr7je")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=159651951]
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_mkypq")
