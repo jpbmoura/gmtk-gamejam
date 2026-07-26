@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://dlgr3scadyai2" path="res://assets/audio/music/skeleton.mp3" id="17_bahl2"]
 [ext_resource type="PackedScene" uid="uid://cmk37nsgv0lsi" path="res://scenes/ui/hud.tscn" id="17_ndtll"]
 [ext_resource type="Script" uid="uid://bousnguy8l3oy" path="res://scenes/main/theme_handler.gd" id="19_v6ha0"]
+[ext_resource type="PackedScene" uid="uid://m73hx48s163q" path="res://scenes/entities/hazards/spike_basic.tscn" id="25_7o3do"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnkej"]
 texture = ExtResource("4_iav0o")
@@ -747,7 +748,7 @@ _data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.96808517, 0.9775281), 0.0, 0.
 point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dodyb"]
-size = Vector2(10528, 138)
+size = Vector2(10864, 138)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_np2pn"]
 shader = ExtResource("14_v6ha0")
@@ -882,12 +883,20 @@ position = Vector2(288, 81)
 visible = false
 
 [node name="Killzone" type="Area2D" parent="." unique_id=1751670375 node_paths=PackedStringArray("spawn")]
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=845494201]
+position = Vector2(0, -80)
+scale = Vector2(2, 2)
+color = Color(0.99999994, 0.8144629, 0.39129108, 1)
+texture = ExtResource("16_gmpev")
+
+[node name="Killzone" type="Area2D" parent="." unique_id=1751670375]
+
 position = Vector2(160, 96)
 script = ExtResource("4_x42e6")
-spawn = NodePath("../Spawn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=991627366]
-position = Vector2(1056, 444)
+position = Vector2(880, 552)
 shape = SubResource("RectangleShape2D_dodyb")
 debug_color = Color(0, 0.20784314, 0.69803923, 0.41960785)
 
@@ -904,14 +913,32 @@ script = ExtResource("9_np2pn")
 [node name="MusicHandler" type="Area2D" parent="." unique_id=162346447]
 audio_bus_override = true
 audio_bus_name = &"Music"
+
+[node name="DebugOverlay" type="CanvasLayer" parent="." unique_id=990117488 node_paths=PackedStringArray("player")]
+script = ExtResource("7_oc4kc")
+player = NodePath("../Player")
+
+[node name="Merchant" parent="." unique_id=2053562257 node_paths=PackedStringArray("shop_ui") instance=ExtResource("12_iav0o")]
+position = Vector2(-176, 80)
+shop_ui = NodePath("../ShopUI")
+
+[node name="ShopUI" parent="." unique_id=1797039014 instance=ExtResource("13_dnkej")]
+visible = false
+
+[node name="MusicHandler" type="Area2D" parent="." unique_id=162346447]
+position = Vector2(0, 80)
 script = ExtResource("19_v6ha0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicHandler" unique_id=1674064353]
-position = Vector2(272, 0)
+position = Vector2(312, -80)
 shape = SubResource("RectangleShape2D_dwgpx")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1653975298]
+position = Vector2(0, 80)
 color = Color(0.51902056, 0.52039385, 0.6426351, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=790493594]
 environment = SubResource("Environment_dwgpx")
+
+[node name="SpikeBasic" parent="." unique_id=511453953 instance=ExtResource("25_7o3do")]
+position = Vector2(368, 48)

@@ -47,6 +47,17 @@ var DASH_COOLDOWN = 2.3
 func _ready() -> void:
 	add_to_group("player")
 
+func teleport(pos: Vector2) -> void:
+	global_position = pos
+	velocity = Vector2.ZERO
+	# --- limpa estado de movimento para não respawnar em dash/wall jump ---
+	dash_timer = 0.0
+	dash_used = false
+	wall_lock_timer = 0.0
+	buffer_timer = 0.0
+	coyote_timer = 0.0
+	jumps_left = max_jumps
+
 	# -- animation --
 
 func _physics_process(delta: float) -> void:
