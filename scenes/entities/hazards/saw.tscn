@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8daqrv3ou32f" path="res://assets/sprites/hazards/saw.png" id="2_u1qgf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dwgpx"]
-radius = 16.0
+radius = 14.0
 
 [node name="Saw" type="Area2D" unique_id=1745430376]
 script = ExtResource("1_gc3gb")
