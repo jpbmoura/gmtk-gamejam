@@ -7,9 +7,9 @@ uniform float wave_strength = 0.015;
 // Velocidade da ondulação
 uniform float wave_speed = 2.0;
 // Frequência das ondas (quantas ondulações ao longo da largura)
-uniform float wave_freq = 10.0;
+uniform float wave_freq = 8.0;
 // Intensidade do brilho pulsante
-uniform float glow = 0.25;
+uniform float glow = 0.20;
 
 void fragment() {
 	vec2 uv = UV;
