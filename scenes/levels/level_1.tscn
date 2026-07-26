@@ -1163,7 +1163,7 @@ color = Color(0.16078432, 0.14901961, 0.28627452, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=845494201]
 visibility_layer = 8
-position = Vector2(0, -80)
+position = Vector2(0, -64)
 scale = Vector2(2, 2)
 color = Color(0.99999994, 0.8144629, 0.39129108, 1)
 texture = ExtResource("16_gmpev")
@@ -1623,3 +1623,111 @@ position = Vector2(1528, -688)
 
 [node name="SpikeBasic52" parent="." unique_id=1054783786 instance=ExtResource("25_7o3do")]
 position = Vector2(2480, 80)
+
+[node name="Collectible" parent="." unique_id=1069402714 instance=ExtResource("10_cfnpk")]
+position = Vector2(328, -168)
+
+[node name="Collectible2" parent="." unique_id=2078546000 instance=ExtResource("10_cfnpk")]
+position = Vector2(752, -744)
+
+[node name="Collectible3" parent="." unique_id=709725644 instance=ExtResource("10_cfnpk")]
+position = Vector2(3224, 136)
+
+[node name="Collectible4" parent="." unique_id=1248857509 instance=ExtResource("18_ytidy")]
+position = Vector2(4304, -528)
+
+[node name="Collectible5" parent="." unique_id=1380442967 instance=ExtResource("18_ytidy")]
+position = Vector2(3920, -208)
+
+[node name="Collectible6" parent="." unique_id=945075256 instance=ExtResource("18_ytidy")]
+position = Vector2(3536, 0)
+
+[node name="Collectible7" parent="." unique_id=1908058535 instance=ExtResource("18_ytidy")]
+position = Vector2(1312, 80)
+
+[node name="Collectible8" parent="." unique_id=119488764 instance=ExtResource("18_ytidy")]
+position = Vector2(1032, 88)
+
+[node name="Collectible9" parent="." unique_id=1117351350 instance=ExtResource("18_ytidy")]
+position = Vector2(1456, -240)
+
+[node name="Collectible10" parent="." unique_id=1731721817 instance=ExtResource("18_ytidy")]
+position = Vector2(1792, -248)
+
+[node name="Collectible11" parent="." unique_id=721121144 instance=ExtResource("10_cfnpk")]
+position = Vector2(2128, -248)
+
+[node name="Collectible12" parent="." unique_id=1148692325 instance=ExtResource("10_cfnpk")]
+position = Vector2(2936, -384)
+
+[node name="Collectible13" parent="." unique_id=712502568 instance=ExtResource("18_ytidy")]
+position = Vector2(2176, -584)
+
+[node name="Collectible14" parent="." unique_id=212377470 instance=ExtResource("18_ytidy")]
+position = Vector2(1648, -808)
+
+[node name="Collectible15" parent="." unique_id=1026427657 instance=ExtResource("18_ytidy")]
+position = Vector2(-400, -656)
+
+[node name="Collectible16" parent="." unique_id=1116600353 instance=ExtResource("18_ytidy")]
+position = Vector2(80, -928)
+
+[node name="Collectible17" parent="." unique_id=1302787072 instance=ExtResource("18_ytidy")]
+position = Vector2(64, -912)
+
+[node name="Collectible18" parent="." unique_id=249686470 instance=ExtResource("18_ytidy")]
+position = Vector2(344, -1104)
+
+[node name="Collectible19" parent="." unique_id=702904853 instance=ExtResource("18_ytidy")]
+position = Vector2(864, -1208)
+
+[node name="Collectible20" parent="." unique_id=1375460733 instance=ExtResource("18_ytidy")]
+position = Vector2(1056, -1176)
+
+[node name="Collectible21" parent="." unique_id=1500536322 instance=ExtResource("18_ytidy")]
+position = Vector2(1256, -1176)
+
+[node name="Collectible22" parent="." unique_id=752015083 instance=ExtResource("10_cfnpk")]
+position = Vector2(-448, -1168)
+
+[node name="Collectible23" parent="." unique_id=970836035 instance=ExtResource("18_ytidy")]
+position = Vector2(-1112, -1120)
+
+[node name="Collectible24" parent="." unique_id=1026640270 instance=ExtResource("18_ytidy")]
+position = Vector2(-1688, -1096)
+
+[node name="Collectible25" parent="." unique_id=1608393717 instance=ExtResource("18_ytidy")]
+position = Vector2(-2296, -1112)
+
+[node name="Collectible26" parent="." unique_id=1546447158 instance=ExtResource("18_ytidy")]
+position = Vector2(-2680, -1560)
+
+[node name="Collectible27" parent="." unique_id=489648333 instance=ExtResource("10_cfnpk")]
+position = Vector2(-2472, -1168)
+
+[node name="Collectible28" parent="." unique_id=1550171580 instance=ExtResource("18_ytidy")]
+position = Vector2(-2296, -2064)
+
+[node name="Collectible29" parent="." unique_id=23292854 instance=ExtResource("10_cfnpk")]
+position = Vector2(-1248, -2128)
+
+[node name="Collectible30" parent="." unique_id=2023438606 instance=ExtResource("10_cfnpk")]
+position = Vector2(1456, -2064)
+
+[node name="Collectible31" parent="." unique_id=1802864159 instance=ExtResource("18_ytidy")]
+position = Vector2(4368, -1008)
+
+[node name="Collectible32" parent="." unique_id=1603698492 instance=ExtResource("18_ytidy")]
+position = Vector2(4352, -1000)
+
+[node name="Collectible33" parent="." unique_id=2021310856 instance=ExtResource("18_ytidy")]
+position = Vector2(4368, -992)
+
+[node name="Collectible34" parent="." unique_id=853472408 instance=ExtResource("18_ytidy")]
+position = Vector2(4376, -976)
+
+[node name="Collectible35" parent="." unique_id=1851994121 instance=ExtResource("18_ytidy")]
+position = Vector2(4360, -976)
+
+[node name="Collectible36" parent="." unique_id=1458535901 instance=ExtResource("18_ytidy")]
+position = Vector2(1776, -1064)

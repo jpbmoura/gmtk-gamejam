@@ -20,9 +20,9 @@ config/icon="res://icon.svg"
 SaveSystem="*uid://cbuhw7p3ppnj1"
 TimeManager="*uid://cf5gg0b6hunw2"
 GameManager="*uid://bnurm7bxl3tsy"
-SfxManager="*uid://k0i6gsfd33jl"
 Settings="*uid://bx0sv7okla5gd"
 Global="*uid://d1tannesl6ffh"
+SfxManager="*uid://k0i6gsfd33jl"
 AltarManager="*uid://d22d4i55wk763"
 
 [display]
@@ -78,5 +78,6 @@ interact={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
