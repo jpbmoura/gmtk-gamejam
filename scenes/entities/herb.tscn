@@ -19,6 +19,7 @@ animations = [{
 }]
 
 [node name="Collectible" unique_id=1819034278 instance=ExtResource("1_hll0n")]
+on_collission = "add_herb"
 
 [node name="Sprite" parent="." index="0" unique_id=368364618]
 sprite_frames = SubResource("SpriteFrames_83qlk")

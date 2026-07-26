@@ -6,6 +6,18 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dodyb"]
 radius = 96.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_balloon"]
+bg_color = Color(0.12156863, 0.14117648, 0.1254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22745098, 0.25882354, 0.21960784, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="Merchant" type="Area2D" unique_id=2053562257]
 script = ExtResource("1_jpa3s")
 
@@ -28,3 +40,29 @@ theme_override_fonts/font = ExtResource("3_rluj3")
 theme_override_font_sizes/font_size = 14
 text = "Press \"E\""
 horizontal_alignment = 1
+
+[node name="Balloon" type="Panel" parent="."]
+offset_left = -44.0
+offset_top = -50.0
+offset_right = 44.0
+offset_bottom = -20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_balloon")
+
+[node name="Tail" type="Polygon2D" parent="Balloon"]
+show_behind_parent = true
+color = Color(0.22745098, 0.25882354, 0.21960784, 1)
+polygon = PackedVector2Array(37, 27, 51, 27, 44, 40)
+
+[node name="Label" type="Label" parent="Balloon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9098039, 0.89411765, 0.84705883, 1)
+theme_override_fonts/font = ExtResource("3_rluj3")
+theme_override_font_sizes/font_size = 14
+text = "Spend Coins Here!"
+horizontal_alignment = 1
+vertical_alignment = 1

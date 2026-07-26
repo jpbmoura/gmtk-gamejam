@@ -59,8 +59,10 @@ func refresh() -> void:
 
 	if max_lvl > 1:
 		level_label.text = "Nv %d / %d" % [lvl, max_lvl]
+		level_label.show()
 	else:
-		level_label.text = "Nv %d" % lvl
+		# habilidade binária: o ✓ já diz se foi comprada, "Nv 0" só polui
+		level_label.hide()
 	level_label.add_theme_color_override("font_color", COLOR_LEVEL)
 
 	var maxed: bool = lvl >= max_lvl

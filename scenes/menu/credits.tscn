@@ -17,6 +17,11 @@ font_size = 32
 font = ExtResource("4_enchl")
 font_size = 38
 
+[sub_resource type="LabelSettings" id="LabelSettings_assets"]
+font = ExtResource("4_enchl")
+font_size = 20
+font_color = Color(0.6039216, 0.58039218, 0.53333336, 1)
+
 [node name="Credits" type="Control" unique_id=1846178225]
 layout_mode = 3
 anchors_preset = 15
@@ -85,6 +90,24 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Vinicius Anacleto"
 label_settings = SubResource("LabelSettings_name")
+horizontal_alignment = 1
+
+[node name="AssetsBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1204778301]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Music" type="Label" parent="CenterContainer/VBoxContainer/AssetsBox" unique_id=1204778302]
+layout_mode = 2
+text = "Music: Skeleton - Acid Jazz"
+label_settings = SubResource("LabelSettings_assets")
+horizontal_alignment = 1
+
+[node name="Tileset" type="Label" parent="CenterContainer/VBoxContainer/AssetsBox" unique_id=1204778303]
+layout_mode = 2
+text = "Tileset: gtajima"
+label_settings = SubResource("LabelSettings_assets")
 horizontal_alignment = 1
 
 [node name="ThanksLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=80824914]

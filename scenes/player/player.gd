@@ -50,7 +50,11 @@ func reset_dash_charges():
 		dash_charges = 2
 	else:
 		dash_charges = 1
-		
+
+## Sem o upgrade de double jump o player só tem o pulo do chão.
+func _max_jumps() -> int:
+	return max_jumps if Global.can_double_jump() else 1
+
 func _ready() -> void:
 	reset_dash_charges()
 		
@@ -65,31 +69,33 @@ func teleport(pos: Vector2) -> void:
 	wall_lock_timer = 0.0
 	buffer_timer = 0.0
 	coyote_timer = 0.0
-	jumps_left = max_jumps
+	jumps_left = _max_jumps()
 
 
 func _physics_process(delta: float) -> void:
 	if !Global.control_enable:
 		return
-		
+
+	var max_jumps_now := _max_jumps()
 	var on_floor := is_on_floor()
-	var on_wall := is_on_wall_only()
+	# sem o upgrade de wall jump a parede é ignorada (nem slide, nem pulo)
+	var on_wall := is_on_wall_only() and Global.can_wall_jump()
 	# --- timers de chão ---
 	if on_floor:
 		if dash_cooldown_timer <= 2:
 			reset_dash_charges()
 		coyote_timer = coyote_time
-		jumps_left = max_jumps
+		jumps_left = max_jumps_now
 	else:
 		coyote_timer -= delta
-		if coyote_timer <= 0.0 and jumps_left == max_jumps:
+		if coyote_timer <= 0.0 and jumps_left == max_jumps_now:
 			jumps_left -= 1
 
 	# --- timers de parede ---
 	if on_wall:
 		last_wall_normal = get_wall_normal()
 		wall_coyote_timer = wall_coyote_time
-		jumps_left = max_jumps
+		jumps_left = max_jumps_now
 	else:
 		wall_coyote_timer -= delta
 
@@ -116,22 +122,20 @@ func _physics_process(delta: float) -> void:
 	# --- pulo de parede (checar ANTES do pulo normal) ---
 	if buffer_timer > 0.0 and wall_coyote_timer > 0.0 and not on_floor:
 		dash_timer = 0.0
-		velocity.x = last_wall_normal.x * wall_jump_push
-		velocity.y = wall_jump_height
 		buffer_timer = 0.0
 		wall_coyote_timer = 0.0
 		coyote_timer = 0.0
 		velocity.x = last_wall_normal.x * wall_jump_push
 		velocity.y = wall_jump_height
 		wall_lock_timer = wall_jump_lock
-		jumps_left = max_jumps - 1
+		jumps_left = max_jumps_now - 1
 		$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
 		facing = facing * -1
 
 	# --- pulo normal / duplo ---
 	elif buffer_timer > 0.0 and jumps_left > 0:
 		buffer_timer = 0.0
-		var ground_jump := coyote_timer > 0.0 and jumps_left == max_jumps
+		var ground_jump := coyote_timer > 0.0 and jumps_left == max_jumps_now
 		coyote_timer = 0.0
 		dash_timer = 0.0
 		velocity.y = jump_velocity if ground_jump else jump_velocity * double_jump_factor
@@ -142,7 +146,7 @@ func _physics_process(delta: float) -> void:
 
 	# --- dash ---
 	# ui_right twice to dash
-	if Input.is_action_just_pressed("dash") and dash_charges > 0:
+	if Input.is_action_just_pressed("dash") and dash_charges > 0 and Global.can_dash():
 		dash_charges -= 1
 		dash_cooldown_timer = DASH_COOLDOWN
 		SfxManager.play("dash")

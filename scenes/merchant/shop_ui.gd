@@ -40,7 +40,8 @@ func _build_items() -> void:
 	item_container.add_child(close_btn)
 
 func _on_buy(id: String) -> void:
-	Global.buy(id, Global.CATALOG[id].cost)
+	if Global.buy(id, Global.CATALOG[id].cost):
+		SfxManager.play("collect")
 	_refresh()
 
 func _refresh() -> void:

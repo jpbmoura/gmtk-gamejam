@@ -54,8 +54,44 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_timebg"]
+bg_color = Color(0.12156863, 0.14117648, 0.1254902, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22745098, 0.25882354, 0.21960784, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_timefill"]
+bg_color = Color(0.83137256, 0.6627451, 0.2901961, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [node name="Hud" type="CanvasLayer" unique_id=1341107353]
 script = ExtResource("1_hqnrr")
+
+[node name="TimeBar" type="ProgressBar" parent="." unique_id=278820845]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 20.0
+offset_right = 300.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_timebg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_timefill")
+max_value = 30.0
+step = 0.001
+value = 30.0
+show_percentage = false
 
 [node name="TopRight" type="VBoxContainer" parent="." unique_id=278820844]
 custom_minimum_size = Vector2(200, 0)
@@ -67,14 +103,6 @@ offset_bottom = 54.0
 grow_horizontal = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(-20, 20)
-
-[node name="TimeLabel" type="Label" parent="TopRight" unique_id=2085436214]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_fonts/font = ExtResource("2_bo48s")
-theme_override_font_sizes/font_size = 28
-horizontal_alignment = 2
 
 [node name="CoinsBox" type="HBoxContainer" parent="TopRight" unique_id=1778183246]
 layout_mode = 2

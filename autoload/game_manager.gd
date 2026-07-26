@@ -16,6 +16,14 @@ var _dying: bool = false
 
 func _ready() -> void:
     TimeManager.run_ended.connect(_on_run_ended)
+    # Global.end_run() é a fonte única de fim de run (tempo esgotado OU morte);
+    # repassamos pro sinal daqui, que é quem o som de morte e a música escutam.
+    Global.player_died.connect(_on_run_finished)
+
+
+func _on_run_finished() -> void:
+    run_active = false
+    player_died.emit()
 
 # Ciclo da Run
 
@@ -37,15 +45,13 @@ func go_to_menu() -> void:
 
 # Morte e Respawn
 
+## Morrer encerra a run inteira, igual ao tempo acabar: a fase recarrega e o
+## cronômetro só reinicia quando o player cruzar a placa de início.
 func kill_player() -> void:
     if not run_active or _dying:
         return
     _dying = true
-    TimeManager.register_death()
-    var players := get_tree().get_nodes_in_group("player")
-    if not players.is_empty() and players[0].has_method("teleport"):
-      players[0].teleport(checkpoint_position)
-    player_died.emit()
+    Global.end_run()
     await get_tree().process_frame
     _dying = false
 

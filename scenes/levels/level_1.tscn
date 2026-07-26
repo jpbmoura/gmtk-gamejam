@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://lfgc71g0g32n" path="res://assets/sprites/idle-Sheet.png" id="6_s8va5"]
 [ext_resource type="Texture2D" uid="uid://ql1mhm012e8h" path="res://assets/sprites/tilesets/InfernoTiles.png" id="6_wtwp4"]
 [ext_resource type="Texture2D" uid="uid://dh5v4fq1jg068" path="res://assets/sprites/tilesets/ExtraTiles1.png" id="7_iwr0g"]
-[ext_resource type="Script" uid="uid://bwy648e6acgts" path="res://scenes/levels/debug_overlay.gd" id="7_oc4kc"]
 [ext_resource type="Texture2D" uid="uid://ctdqm0livm7x5" path="res://assets/sprites/run-Sheet.png" id="7_s8va5"]
 [ext_resource type="PackedScene" uid="uid://n8jo42ljb7bb" path="res://scenes/player/ghost_trail.tscn" id="9_bahl2"]
 [ext_resource type="Script" uid="uid://bmal50t44kbgq" path="res://scenes/levels/lava_surface.gd" id="9_np2pn"]
@@ -865,15 +864,9 @@ tile_set = SubResource("TileSet_dwgpx")
 
 [node name="Herb" parent="World" unique_id=1819034278 instance=ExtResource("10_cfnpk")]
 position = Vector2(515, 27)
-on_collission = "add_herb"
 
 [node name="Coin" parent="World" unique_id=1201975950 instance=ExtResource("18_ytidy")]
-position = Vector2(207, 87)
-on_collission = "add_coins"
-
-[node name="Coin2" parent="World" unique_id=1322320563 instance=ExtResource("18_ytidy")]
-position = Vector2(207, 13)
-on_collission = "add_coins"
+position = Vector2(368, 84)
 
 [node name="Saw" parent="World" unique_id=1745430376 instance=ExtResource("14_o8s4s")]
 position = Vector2(1288, -192)
@@ -1203,15 +1196,6 @@ rotation = 1.5707964
 [node name="Final" parent="." unique_id=1444602129 instance=ExtResource("17_0qwwm")]
 position = Vector2(1888, -2832)
 
-[node name="DebugOverlay" type="CanvasLayer" parent="." unique_id=990117488 node_paths=PackedStringArray("player")]
-script = ExtResource("7_oc4kc")
-player = NodePath("../Player")
-
-[node name="Merchant" parent="." unique_id=2053562257 node_paths=PackedStringArray("shop_ui") instance=ExtResource("12_iav0o")]
-visible = false
-position = Vector2(-176, 80)
-shop_ui = NodePath("../ShopUI")
-
 [node name="StartSign" parent="." unique_id=1470581300 instance=ExtResource("16_mkypq")]
 position = Vector2(288, 81)
 
@@ -1246,25 +1230,16 @@ audio_bus_name = &"Music"
 position = Vector2(312, -8)
 shape = SubResource("RectangleShape2D_dwgpx")
 
-[node name="DebugOverlay2" type="CanvasLayer" parent="." unique_id=1082240633]
-
-[node name="DebugOverlay3" type="CanvasLayer" parent="." unique_id=1402600657 node_paths=PackedStringArray("player")]
-script = ExtResource("7_oc4kc")
-player = NodePath("../Player")
-
-[node name="Merchant2" parent="." unique_id=375457289 node_paths=PackedStringArray("shop_ui") instance=ExtResource("12_iav0o")]
+[node name="Merchant" parent="." unique_id=375457289 node_paths=PackedStringArray("shop_ui") instance=ExtResource("12_iav0o")]
 position = Vector2(-176, 80)
 shop_ui = NodePath("../ShopUI")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Merchant2" unique_id=1471457146]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Merchant" unique_id=1471457146]
 position = Vector2(0, 8)
 scale = Vector2(-0.4, 0.5)
 sprite_frames = SubResource("SpriteFrames_hqeee")
 autoplay = "default"
 frame_progress = 0.97367454
-
-[node name="ShopUI2" parent="." unique_id=1745986021 instance=ExtResource("13_dnkej")]
-visible = false
 
 [node name="MusicHandler2" type="Area2D" parent="." unique_id=491044223]
 position = Vector2(0, 80)

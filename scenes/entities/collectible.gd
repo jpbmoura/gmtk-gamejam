@@ -27,5 +27,5 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	if on_collission != "" and Global.has_method(on_collission):
 		Global.callv(on_collission, [1])
-	SfxManager.play(collect_sound)
+		SfxManager.play("collect")
 	queue_free()

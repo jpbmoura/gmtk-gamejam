@@ -56,6 +56,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pedw3"]
 
 [node name="Collectible" unique_id=1819034278 instance=ExtResource("1_sao8m")]
+on_collission = "add_coins"
 
 [node name="Sprite" parent="." index="0" unique_id=368364618]
 sprite_frames = SubResource("SpriteFrames_sao8m")
