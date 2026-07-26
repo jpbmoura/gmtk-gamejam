@@ -14,8 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dh5v4fq1jg068" path="res://assets/sprites/tilesets/ExtraTiles1.png" id="7_iwr0g"]
 [ext_resource type="Script" uid="uid://bwy648e6acgts" path="res://scenes/levels/debug_overlay.gd" id="7_oc4kc"]
 [ext_resource type="Texture2D" uid="uid://ctdqm0livm7x5" path="res://assets/sprites/run-Sheet.png" id="7_s8va5"]
+[ext_resource type="Script" uid="uid://bmal50t44kbgq" path="res://scenes/levels/lava_surface.gd" id="9_np2pn"]
 [ext_resource type="PackedScene" uid="uid://bcekfs1yigsqj" path="res://scenes/merchant/merchant.tscn" id="12_iav0o"]
 [ext_resource type="PackedScene" uid="uid://c7x503dumguwd" path="res://scenes/merchant/shop_ui.tscn" id="13_dnkej"]
+[ext_resource type="Shader" uid="uid://b5qpln6xmf7d8" path="res://scenes/levels/lava_shader.gdshader" id="14_v6ha0"]
+[ext_resource type="Texture2D" uid="uid://c88rb28n52p50" path="res://assets/sprites/acid.png" id="15_v6ha0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnkej"]
 texture = ExtResource("4_iav0o")
@@ -278,9 +281,6 @@ sources/2 = SubResource("TileSetAtlasSource_dnkej")
 sources/3 = SubResource("TileSetAtlasSource_mm8aj")
 sources/4 = SubResource("TileSetAtlasSource_bahl2")
 sources/5 = SubResource("TileSetAtlasSource_np2pn")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dodyb"]
-size = Vector2(10528, 138)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw547"]
 size = Vector2(16, 27)
@@ -739,6 +739,17 @@ _limits = [-1.0, 1.0, 0.0, 2.0]
 _data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(0.96808517, 0.9775281), 0.0, 0.0, 0, 0, Vector2(1.9468086, -0.9101125), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dodyb"]
+size = Vector2(10528, 138)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_np2pn"]
+shader = ExtResource("14_v6ha0")
+shader_parameter/scroll_speed = 0.05
+shader_parameter/wave_strength = 0.015
+shader_parameter/wave_speed = 2.0
+shader_parameter/wave_freq = 8.0
+shader_parameter/glow = 0.15
+
 [node name="Level1" type="Node2D" unique_id=2117434212 node_paths=PackedStringArray("spawn", "player")]
 script = ExtResource("1_6761a")
 spawn = NodePath("Spawn")
@@ -764,16 +775,6 @@ tile_set = SubResource("TileSet_dwgpx")
 [node name="Spawn" type="Marker2D" parent="." unique_id=734893175]
 position = Vector2(0, 80)
 gizmo_extents = 36.3
-
-[node name="Killzone" type="Area2D" parent="." unique_id=1751670375 node_paths=PackedStringArray("spawn")]
-position = Vector2(160, 96)
-script = ExtResource("4_x42e6")
-spawn = NodePath("../Spawn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=991627366]
-position = Vector2(1056, 576)
-shape = SubResource("RectangleShape2D_dodyb")
-debug_color = Color(0, 0.20784314, 0.69803923, 0.41960785)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=837359898]
 position = Vector2(0, 160)
@@ -836,6 +837,26 @@ angle_max = 499.0
 scale_amount_max = 4.0
 color = Color(0.16078432, 0.14901961, 0.28627452, 1)
 
+[node name="Killzone" type="Area2D" parent="." unique_id=1751670375 node_paths=PackedStringArray("spawn")]
+position = Vector2(160, 96)
+script = ExtResource("4_x42e6")
+spawn = NodePath("../Spawn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=991627366]
+position = Vector2(1056, 444)
+shape = SubResource("RectangleShape2D_dodyb")
+debug_color = Color(0, 0.20784314, 0.69803923, 0.41960785)
+
+[node name="LavaSurface" type="Sprite2D" parent="Killzone" unique_id=1785891433]
+texture_repeat = 3
+material = SubResource("ShaderMaterial_np2pn")
+position = Vector2(560, 300)
+scale = Vector2(4.784, 0.75)
+texture = ExtResource("15_v6ha0")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 1024)
+script = ExtResource("9_np2pn")
+
 [node name="DebugOverlay" type="CanvasLayer" parent="." unique_id=990117488 node_paths=PackedStringArray("player")]
 script = ExtResource("7_oc4kc")
 player = NodePath("../Player")
@@ -845,3 +866,4 @@ position = Vector2(-176, 80)
 shop_ui = NodePath("../ShopUI")
 
 [node name="ShopUI" parent="." unique_id=1797039014 instance=ExtResource("13_dnkej")]
+visible = false
