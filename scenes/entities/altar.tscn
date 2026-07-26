@@ -10,7 +10,7 @@ size = Vector2(53, 66)
 script = ExtResource("2_3r5ep")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1513069458]
-z_index = -1
+z_index = 1
 scale = Vector2(0.07, 0.07)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1084233146]

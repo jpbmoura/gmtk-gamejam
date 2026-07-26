@@ -879,6 +879,7 @@ sprite_texture = ExtResource("5_wvtie")
 on_collission = "pray_2"
 
 [node name="Herb" parent="World" unique_id=253410192 instance=ExtResource("3_qxy0u")]
+z_index = 1
 position = Vector2(515, 18)
 on_collission = "add_herb"
 
@@ -896,6 +897,7 @@ sprite_texture = SubResource("AnimatedTexture_x7jkp")
 on_collission = "add_coins"
 
 [node name="coin2" parent="World" unique_id=1868119339 instance=ExtResource("3_qxy0u")]
+z_index = 1
 position = Vector2(207, 13)
 sprite_texture = SubResource("AnimatedTexture_x7jkp")
 on_collission = "add_coins"
@@ -905,6 +907,7 @@ position = Vector2(0, 80)
 gizmo_extents = 36.3
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=837359898]
+z_index = 2
 position = Vector2(0, 160)
 script = ExtResource("2_x42e6")
 ghost_trail_scene = ExtResource("9_bahl2")
