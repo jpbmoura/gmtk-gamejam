@@ -25,11 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://luas87dw5v2w" path="res://assets/icons/4.png" id="12_o8s4s"]
 [ext_resource type="PackedScene" uid="uid://c7x503dumguwd" path="res://scenes/merchant/shop_ui.tscn" id="13_dnkej"]
 [ext_resource type="Texture2D" uid="uid://d01hi0lndfxjn" path="res://assets/icons/5.png" id="13_ebb2h"]
-<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://bq04a8xbc7i2" path="res://scenes/entities/altar.tscn" id="14_cfnpk"]
-=======
 [ext_resource type="PackedScene" uid="uid://cj63cwn7fwqf0" path="res://scenes/entities/hazards/saw.tscn" id="14_o8s4s"]
->>>>>>> f5289a4 (saw)
 [ext_resource type="Shader" uid="uid://b5qpln6xmf7d8" path="res://scenes/levels/lava_shader.gdshader" id="14_v6ha0"]
 [ext_resource type="Texture2D" uid="uid://c88rb28n52p50" path="res://assets/sprites/acid.png" id="15_v6ha0"]
 [ext_resource type="Texture2D" uid="uid://m5crujal6ysv" path="res://assets/shaders/light_radial.png" id="16_gmpev"]
