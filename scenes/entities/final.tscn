@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bx5mr86hkdo6e"]
+
+[ext_resource type="Texture2D" uid="uid://c6c6nqtsu61v0" path="res://assets/sprites/final_statue.png" id="1_7kov2"]
+[ext_resource type="Texture2D" uid="uid://m5crujal6ysv" path="res://assets/shaders/light_radial.png" id="2_yg21a"]
+[ext_resource type="Script" path="res://scenes/entities/final.gd" id="3_fnl0e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dwgpx"]
+radius = 24.0
+height = 160.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trigger"]
+size = Vector2(120, 190)
+
+[node name="Final" type="StaticBody2D" unique_id=1444602129]
+script = ExtResource("3_fnl0e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=625562197]
+position = Vector2(-62.5, 60.499996)
+scale = Vector2(0.24999999, 0.24199997)
+texture = ExtResource("1_7kov2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1184280509]
+position = Vector2(-64, 40)
+shape = SubResource("CapsuleShape2D_dwgpx")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1634256955]
+position = Vector2(-56, 24)
+scale = Vector2(0.36132815, 0.32421875)
+texture = ExtResource("2_yg21a")
+
+[node name="Trigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(-64, 30)
+shape = SubResource("RectangleShape2D_trigger")
