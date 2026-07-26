@@ -29,7 +29,7 @@ const CATALOG := {
 	},
 }
 
-@export var start_time := 50.0
+@export var start_time := 30.0
 var time_left := 0.0
 var timer_running := false
 var timer_started := false
@@ -39,6 +39,7 @@ var upgrades: Dictionary = {}
 
 func add_herb(val:int = 1):
 	herb_count += val
+	add_time(5)
 
 func remove_herb(val:int = 1):
 	if herb_count - val < 0:
