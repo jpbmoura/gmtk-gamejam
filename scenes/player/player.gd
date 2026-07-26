@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var ghost_trail_scene : PackedScene
+@export var ghost_trail_scene: PackedScene
 
 @export_group("Movimento")
 @export var speed := 300.0
@@ -37,8 +37,8 @@ var dash_cooldown_timer := 0.0
 var facing := -1
 var was_on_floor := true
 
-var ghost_timer : float = 0.0
-var ghost_interval : float = 0.02
+var ghost_timer: float = 0.0
+var ghost_interval: float = 0.02
 
 var DASH_TIME = 0.2
 var DASH_SPEED = 800.0
@@ -58,7 +58,6 @@ func teleport(pos: Vector2) -> void:
 	coyote_timer = 0.0
 	jumps_left = max_jumps
 
-	# -- animation --
 
 func _physics_process(delta: float) -> void:
 	var on_floor := is_on_floor()
