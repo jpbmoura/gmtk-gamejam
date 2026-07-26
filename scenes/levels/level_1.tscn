@@ -862,7 +862,6 @@ scale_amount_max = 4.0
 color = Color(0.16078432, 0.14901961, 0.28627452, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=845494201]
-
 position = Vector2(0, -80)
 scale = Vector2(2, 2)
 color = Color(0.99999994, 0.8144629, 0.39129108, 1)
@@ -906,10 +905,13 @@ script = ExtResource("9_np2pn")
 audio_bus_override = true
 audio_bus_name = &"Music"
 
-[node name="DebugOverlay" type="CanvasLayer" parent="." unique_id=990117488 node_paths=PackedStringArray("player")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicHandler" unique_id=1674064353]
+position = Vector2(312, -80)
+shape = SubResource("RectangleShape2D_dwgpx")
 
-[node name="DebugOverlay2" type="CanvasLayer" parent="." unique_id=1402600657 node_paths=PackedStringArray("player")]
+[node name="DebugOverlay2" type="CanvasLayer" parent="." unique_id=1082240633]
 
+[node name="DebugOverlay3" type="CanvasLayer" parent="." unique_id=1402600657 node_paths=PackedStringArray("player")]
 script = ExtResource("7_oc4kc")
 player = NodePath("../Player")
 
@@ -920,13 +922,9 @@ shop_ui = NodePath("../ShopUI")
 [node name="ShopUI2" parent="." unique_id=1745986021 instance=ExtResource("13_dnkej")]
 visible = false
 
-[node name="MusicHandler" type="Area2D" parent="." unique_id=162346447]
+[node name="MusicHandler2" type="Area2D" parent="." unique_id=491044223]
 position = Vector2(0, 80)
 script = ExtResource("19_v6ha0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicHandler" unique_id=1674064353]
-position = Vector2(312, -80)
-shape = SubResource("RectangleShape2D_dwgpx")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1653975298]
 position = Vector2(0, 80)
